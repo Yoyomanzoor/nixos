@@ -177,30 +177,56 @@
     };
   };
 
-  #----=[ Fonts ]=----#
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [ 
-      (nerdfonts.override {fonts = [ "FiraCode" ]; })
-      noto-fonts
-      noto-fonts-emoji
-      liberation_ttf
-      fira-code
-      fira-code-symbols
-      dina-font
-      proggyfonts
-      # Persian Font
-      # vazir-fonts
-    ];
-
-    # fontconfig = {
-    #   defaultFonts = {
-    #     serif = [  "Liberation Serif" "Vazirmatn" ];
-    #     sansSerif = [ "Fira Code" "Vazirmatn" ];
-    #     monospace = [ "Fira Code" ];
-    #   };
-    # };
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+  stylix.image = ./wallpaper.jpg;
+  stylix.cursor.package = pkgs.bibata-cursors;
+  stylix.cursor.name = "Bibata-Modern-Ice";
+  stylix.fonts = {
+    monospace = {
+      package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+      name = "JetBrainsMono Nerd Font Mono";
+    };
+    sansSerif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans";
+    };
+    serif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Serif";
+    };
   };
+  stylix.opacity = {
+    applications = 1.0;
+    terminal = 0.9;
+    desktop = 1.0;
+    popups = 0.9;
+  };
+  stylix.polarity = "dark"; # light or dark or either
+
+  #----=[ Fonts ]=----#
+  # fonts = {
+  #   enableDefaultPackages = true;
+  #   packages = with pkgs; [ 
+  #     (nerdfonts.override {fonts = [ "FiraCode" ]; })
+  #     noto-fonts
+  #     noto-fonts-emoji
+  #     liberation_ttf
+  #     fira-code
+  #     fira-code-symbols
+  #     dina-font
+  #     proggyfonts
+  #     # Persian Font
+  #     # vazir-fonts
+  #   ];
+
+  #   # fontconfig = {
+  #   #   defaultFonts = {
+  #   #     serif = [  "Liberation Serif" "Vazirmatn" ];
+  #   #     sansSerif = [ "Fira Code" "Vazirmatn" ];
+  #   #     monospace = [ "Fira Code" ];
+  #   #   };
+  #   # };
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

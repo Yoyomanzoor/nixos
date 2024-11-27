@@ -57,6 +57,13 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -105,6 +112,21 @@
     gcc
     libgcc
     cargo
+
+    grim
+    slurp
+    wl-clipboard
+    swaynotificationcenter
+    wofi
+    nwg-displays
+    gtklock
+    swww
+    avizo
+    waybar
+    xdotool
+
+    eza
+    fzf
   ];
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -116,6 +138,7 @@
     #   ~/.ssh
     # ];
     packages = with pkgs; [
+      kitty
       ranger
       floorp
       vieb

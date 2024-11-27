@@ -54,14 +54,15 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
 
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    xwayland.enable = true;
   };
   
   # Configure keymap in X11
@@ -138,7 +139,7 @@
   users.users.yoyomanzoor = {
     isNormalUser = true;
     description = "Yoyomanzoor";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     # openssh.authorizedKeys.keyFiles = [
     #   ~/.ssh
     # ];
@@ -164,6 +165,10 @@
   # Install Fish
   programs.fish.enable = true;
 
+  programs.light.enable = true;
+  programs.npm.enable = true;
+  programs.nm-applet.enable = true;
+
   # Git options
   programs.git = {
     enable = true;
@@ -176,7 +181,8 @@
       enable = true;
     };
   };
-
+  
+  stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
   stylix.image = ./wallpaper.jpg;
   stylix.cursor.package = pkgs.bibata-cursors;
@@ -202,6 +208,7 @@
     popups = 0.9;
   };
   stylix.polarity = "dark"; # light or dark or either
+  disabledModules = [ "${inputs.stylix}/modules/regreet/nixos.nix" ];
 
   #----=[ Fonts ]=----#
   # fonts = {

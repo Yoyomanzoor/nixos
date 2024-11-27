@@ -94,7 +94,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # this allows you to access `pkgsUnstable` anywhere in your config
   _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
@@ -114,6 +114,7 @@
     libgcc
     cargo
     ripgrep
+    jq
 
     grim
     slurp
@@ -126,13 +127,17 @@
     avizo
     waybar
     xdotool
+    wlogout
 
+    ugrep
     eza
     fzf
     bat
     fastfetch
     starship
     python3
+
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
   ];
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -149,6 +154,7 @@
       floorp
       vieb
       lazygit
+      zathura
     ];
   };
 
@@ -159,12 +165,8 @@
   #   };
   # };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Install Fish
+  programs.firefox.enable = false;
   programs.fish.enable = true;
-
   programs.light.enable = true;
   programs.npm.enable = true;
   programs.nm-applet.enable = true;
@@ -182,10 +184,11 @@
     };
   };
   
+  # Stylix settings
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
   stylix.image = ./wallpaper.jpg;
-  stylix.cursor.package = pkgs.bibata-cursors;
+  stylix.cursor.package = pkgs.rose-pine-cursor;
   stylix.cursor.name = "Bibata-Modern-Ice";
   stylix.fonts = {
     monospace = {
@@ -208,7 +211,7 @@
     popups = 0.9;
   };
   stylix.polarity = "dark"; # light or dark or either
-  disabledModules = [ "${inputs.stylix}/modules/regreet/nixos.nix" ];
+  disabledModules = [ "${inputs.stylix}/modules/regreet/nixos.nix" ]; # See https://github.com/danth/stylix/issues/577
 
   #----=[ Fonts ]=----#
   # fonts = {

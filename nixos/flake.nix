@@ -8,6 +8,7 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
 
     # home-manager = {
     #   url = "github:nix-community/home-manager";

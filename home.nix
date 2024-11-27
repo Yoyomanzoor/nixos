@@ -68,7 +68,7 @@
   #  /etc/profiles/per-user/yoyomanzoor/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   programs.git = {

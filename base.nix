@@ -81,7 +81,7 @@
     pkgsUnstable.neovim
     wget
     nerdfonts
-    home-manager
+    # home-manager
     lua
     gcc
     libgcc

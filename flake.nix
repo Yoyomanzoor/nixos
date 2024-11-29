@@ -1,29 +1,75 @@
 {
-  description = "Home Manager configuration of yoyomanzoor";
+  description = "Nixos config flake";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      system = "x86_64-linux";
+      system = if builtins ? currentSystem
+        then builtins.currentSystem
+	else "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      homeConfigurations."yoyomanzoor" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+    in
+    {
+      nixConfig = {
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	nix.optimise.automatic = true;
+	nix.gc = {
+	  automatic = true;
+	  dates = "weekly";
+	  options = "--delete-older-than 30d";
+	};
       };
+      nixosConfigurations = {
+	default = nixpkgs.lib.nixosSystem {
+	  specialArgs = {inherit inputs;};
+	  modules = [
+	    ./hosts/default/configuration.nix
+	    inputs.stylix.nixosModules.stylix
+	    # inputs.home-manager.nixosModules.default
+	  ];
+	};
+	"lenovo-yoga-sway" = nixpkgs.lib.nixosSystem {
+	  specialArgs = {inherit inputs;};
+	  modules = [
+	    ./hosts/lenovo-yoga/configuration.nix
+	    ./base.nix
+	    ./sway.nix
+	    inputs.stylix.nixosModules.stylix
+	  ];
+	};
+	"lenovo-yoga-gnome" = nixpkgs.lib.nixosSystem {
+	  specialArgs = {inherit inputs;};
+	  modules = [
+	    ./hosts/lenovo-yoga/configuration.nix
+	    inputs.stylix.nixosModules.stylix
+	    ./base.nix
+	    ./gnome.nix
+	    home-manager.nixosModules.home-manager
+	    {
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	      # home-manager.users.yoyomanzoor = import ./home.nix;
+
+	      # Optionally, use home-manager.extraSpecialArgs to pass
+	      # arguments to home.nix
+	    }
+	  ];
+	};
+      };
+
     };
 }

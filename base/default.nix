@@ -88,10 +88,12 @@
     cargo
     ripgrep
     jq
+    unzip
 
     ugrep
     eza
     fzf
+    fd
     bat
     fastfetch
     starship
@@ -122,6 +124,11 @@
       vieb
       lazygit
       zathura
+      vesktop
+      obsidian
+      mpv
+      vlc
+      yt-dlp
     ];
   };
 
@@ -151,7 +158,7 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "yoyomanzoor" = import ./home.nix;
+      "yoyomanzoor" = import ../home.nix;
     };
   };
 
@@ -188,7 +195,7 @@
       };
     };
     opacity = {
-      applications = 1.0;
+      applications = 0.9;
       terminal = 0.9;
       desktop = 1.0;
       popups = 0.9;

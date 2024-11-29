@@ -39,24 +39,19 @@
 	  modules = [
 	    ./hosts/default/configuration.nix
 	    inputs.stylix.nixosModules.stylix
-	    # inputs.home-manager.nixosModules.default
 	  ];
 	};
 	"lenovo-yoga-sway" = nixpkgs.lib.nixosSystem {
 	  specialArgs = {inherit inputs;};
 	  modules = [
 	    ./hosts/lenovo-yoga/configuration.nix
-	    ./laptop-base.nix
-	    ./sway.nix
+	    ./base/laptop-base.nix
+	    ./desktop-environments/sway.nix
 	    inputs.stylix.nixosModules.stylix
 	    inputs.home-manager.nixosModules.home-manager
 	    {
 	      home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
-	      # home-manager.users.yoyomanzoor = import ./home.nix;
-
-	      # Optionally, use home-manager.extraSpecialArgs to pass
-	      # arguments to home.nix
 	    }
 	  ];
 	};
@@ -65,8 +60,8 @@
 	  modules = [
 	    ./hosts/lenovo-yoga/configuration.nix
 	    inputs.stylix.nixosModules.stylix
-	    ./laptop-base.nix
-	    ./gnome.nix
+	    ./base/laptop-base.nix
+	    ./desktop-environments/gnome.nix
 	    inputs.home-manager.nixosModules.home-manager
 	    {
 	      home-manager.useGlobalPkgs = true;

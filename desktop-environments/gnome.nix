@@ -18,12 +18,16 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
   nixpkgs.overlays = [ (final: prev: {
     gnome-backgrounds = final.gnome.gnome-backgrounds;
-  }) ];
+  }) ]; # Cause there's some issue with this thing in current nix version
   # environment.gnome.excludePackages = [ pkgs.gnome.gnome-backgrounds ];
+
   services.gnome.gnome-keyring.enable = true;
   environment.systemPackages = with pkgs; [
+    wl-clipboard
+    grim
     gnomeExtensions.user-themes
     gnomeExtensions.dash-to-dock
     gnomeExtensions.dash-to-panel
@@ -37,6 +41,7 @@
     gnomeExtensions.gsconnect
     gnomeExtensions.gamemode-indicator-in-system-settings
     gnomeExtensions.open-bar
+    gnomeExtensions.paperwm
     gnome.gnome-terminal
   ];
 }

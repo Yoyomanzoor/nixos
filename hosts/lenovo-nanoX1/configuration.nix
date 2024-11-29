@@ -5,7 +5,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      # ./hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
 
   # This value determines the NixOS release from which the default

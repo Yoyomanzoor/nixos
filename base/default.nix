@@ -80,6 +80,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     pkgsUnstable.neovim
+    markdown-oxide # required as a package for mason
     wget
     nerdfonts
     # home-manager
@@ -98,7 +99,8 @@
     bat
     fastfetch
     starship
-    python3
+    # python3
+    nodejs_22
 
     vimiv-qt
 
@@ -133,10 +135,15 @@
     ];
   };
 
-  programs.firefox.enable = false;
+  # Programming programs
   programs.fish.enable = true;
-  programs.light.enable = true;
   programs.npm.enable = true;
+
+  # Other programs
+  programs.firefox.enable = false;
+
+  # System programs
+  programs.light.enable = true;
   programs.nm-applet = {
     enable = true;
     indicator = true;

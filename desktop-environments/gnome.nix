@@ -1,4 +1,5 @@
 # GNOME setup
+# Inspired from https://github.com/lucasfabre/nixos-config/blob/main/system/gnome.nix
 
 { config, pkgs, pkgsUnstable, lib, inputs, ... }:
 
@@ -13,6 +14,7 @@
     enable = true;
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+    configPackages = [ pkgs.gnome.gnome-session ];
   };
 
   # Enable the GNOME Desktop Environment.

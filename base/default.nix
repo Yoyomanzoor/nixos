@@ -172,7 +172,7 @@
       gnome.enable = true;
     };
 
-    image = /home/yoyomanzoor/.config/home-manager/wallpaper.png;
+    image = ../wallpaper.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     polarity = "dark"; # light or dark or either
     cursor.package = lib.mkForce pkgs.bibata-cursors;

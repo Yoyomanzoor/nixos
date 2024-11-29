@@ -57,7 +57,7 @@
 	    ./hosts/lenovo-yoga/configuration.nix
 	    inputs.stylix.nixosModules.stylix
 	    ./base.nix
-	    ./sway.nix
+	    ./gnome.nix
 	  ];
 	};
       };

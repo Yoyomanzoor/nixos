@@ -7,7 +7,7 @@
   ];
 
   # Enable the X11 windowing system.
-  services.xserver.enable = false;
+  services.xserver.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -18,7 +18,10 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
+  nixpkgs.overlays = [ (final: prev: {
+    gnome-backgrounds = final.gnome.gnome-backgrounds;
+  }) ];
+  # environment.gnome.excludePackages = [ pkgs.gnome.gnome-backgrounds ];
   services.gnome.gnome-keyring.enable = true;
   environment.systemPackages = with pkgs; [
     gnomeExtensions.user-themes

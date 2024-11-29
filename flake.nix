@@ -16,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       system = if builtins ? currentSystem
         then builtins.currentSystem
@@ -58,7 +58,7 @@
 	    inputs.stylix.nixosModules.stylix
 	    ./base.nix
 	    ./gnome.nix
-	    home-manager.nixosModules.home-manager
+	    inputs.home-manager.nixosModules.home-manager
 	    {
 	      home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;

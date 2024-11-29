@@ -4,6 +4,7 @@
 
 {
   imports = [
+    inputs.home-manager.nixosModules.default
   ];
 
   # this allows you to access `pkgsUnstable` anywhere in your config
@@ -11,6 +12,8 @@
     inherit (pkgs.stdenv.hostPlatform) system;
     inherit (config.nixpkgs) config;
   };
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -99,7 +102,7 @@
 
     vimiv-qt
 
-    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    # inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     rose-pine-cursor
     blueman
   ];
@@ -123,13 +126,6 @@
     ];
   };
 
-  # home-manager = {
-  #   extraSpecialArgs = {inherit inputs;};
-  #   users = {
-  #     "yoyomanzoor" = import ./home.nix;
-  #   };
-  # };
-
   programs.firefox.enable = false;
   programs.fish.enable = true;
   programs.light.enable = true;
@@ -152,6 +148,14 @@
     };
   };
   
+  #Home manager setup
+  home-manager = {
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "yoyomanzoor" = import ./home.nix;
+    };
+  };
+
   # Stylix settings
   stylix = {
     enable = true;
@@ -162,11 +166,11 @@
     #   grub.enable = true;
     # };
 
-    image = ./wallpaper.jpg;
+    image = /home/yoyomanzoor/.config/home-manager/wallpaper.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     polarity = "dark"; # light or dark or either
-    cursor.package = pkgs.rose-pine-cursor;
-    cursor.name = "rose-pine-cursor";
+    cursor.package = lib.mkForce pkgs.bibata-cursors;
+    cursor.name = "Bibata-Modern-Ice";
     fonts = {
       monospace = {
         package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};

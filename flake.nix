@@ -75,8 +75,9 @@
 	  ];
 	};
 	"lenovo-nanoX1-sway" = nixpkgs.lib.nixosSystem {
-	  specialArgs = {inherit inputs;};
+	  specialArgs = {inherit inputs system;};
 	  modules = [
+	    ./hosts/lenovo-nanoX1/configuration.nix
 	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
 	    ./base/laptop-base.nix
 	    ./desktop-environments/sway.nix
@@ -89,8 +90,9 @@
 	  ];
 	};
 	"lenovo-nanoX1-gnome" = nixpkgs.lib.nixosSystem {
-	  specialArgs = {inherit inputs;};
+	  specialArgs = {inherit inputs system;};
 	  modules = [
+	    ./hosts/lenovo-nanoX1/configuration.nix
 	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
 	    ./base/laptop-base.nix
 	    ./desktop-environments/gnome.nix

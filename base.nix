@@ -105,6 +105,8 @@
     # inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     rose-pine-cursor
     blueman
+
+    anki
   ];
   
   # Define a user account. Don't forget to set a password with ‘passwd’.

@@ -24,16 +24,26 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-    nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-	modules = [
-	  ./hosts/default/configuration.nix
-	  inputs.stylix.nixosModules.stylix
-	  # inputs.home-manager.nixosModules.default
-	];
+      nixConfig = {
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
       };
-    };
+      nixosConfigurations = {
+	default = nixpkgs.lib.nixosSystem {
+	  specialArgs = {inherit inputs;};
+	  modules = [
+	    ./hosts/default/configuration.nix
+	    inputs.stylix.nixosModules.stylix
+	    # inputs.home-manager.nixosModules.default
+	  ];
+	};
+	"lenovo-yoga" = nixpkgs.lib.nixosSystem {
+	  specialArgs = {inherit inputs;};
+	  modules = [
+	    ./hosts/lenovo-yoga/configuration.nix
+	    inputs.stylix.nixosModules.stylix
+	  ];
+	};
+      };
 
-  };
+    };
 }

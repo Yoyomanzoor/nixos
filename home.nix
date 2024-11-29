@@ -77,6 +77,12 @@
     userEmail = "smanzoor@umich.edu";
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.rose-pine-cursor;
+    name = "rose-pine-cursor";
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

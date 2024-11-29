@@ -1,6 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# Lenovo Slim 7 configuration
 
 { config, pkgs, pkgsUnstable, lib, inputs, ... }:
 
@@ -8,12 +6,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      # ./main-user.nix
-      # inputs.home-manager.nixosModules.default
     ];
-
-  # main-user.enable = true;
-  # main-user.userName = "yoyomanzoor";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

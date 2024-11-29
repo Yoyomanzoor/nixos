@@ -49,6 +49,15 @@
 	    ./base.nix
 	    ./sway.nix
 	    inputs.stylix.nixosModules.stylix
+	    inputs.home-manager.nixosModules.home-manager
+	    {
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	      # home-manager.users.yoyomanzoor = import ./home.nix;
+
+	      # Optionally, use home-manager.extraSpecialArgs to pass
+	      # arguments to home.nix
+	    }
 	  ];
 	};
 	"lenovo-yoga-gnome" = nixpkgs.lib.nixosSystem {

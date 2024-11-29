@@ -75,9 +75,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -106,7 +103,7 @@
     rose-pine-cursor
     blueman
 
-    anki
+    anki-bin
   ];
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -232,7 +229,10 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
+  ### List services that you want to enable:
+  
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.libinput.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

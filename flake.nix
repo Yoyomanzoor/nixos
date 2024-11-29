@@ -46,7 +46,7 @@
 	  specialArgs = {inherit inputs;};
 	  modules = [
 	    ./hosts/lenovo-yoga/configuration.nix
-	    ./base.nix
+	    ./laptop-base.nix
 	    ./sway.nix
 	    inputs.stylix.nixosModules.stylix
 	    inputs.home-manager.nixosModules.home-manager
@@ -65,7 +65,7 @@
 	  modules = [
 	    ./hosts/lenovo-yoga/configuration.nix
 	    inputs.stylix.nixosModules.stylix
-	    ./base.nix
+	    ./laptop-base.nix
 	    ./gnome.nix
 	    inputs.home-manager.nixosModules.home-manager
 	    {

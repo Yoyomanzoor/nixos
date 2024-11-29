@@ -103,7 +103,7 @@
     vimiv-qt
 
     # inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    rose-pine-cursor
+    # rose-pine-cursor
     blueman
 
     anki-bin

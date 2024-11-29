@@ -4,11 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+    # rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -70,6 +71,34 @@
 
 	      # Optionally, use home-manager.extraSpecialArgs to pass
 	      # arguments to home.nix
+	    }
+	  ];
+	};
+	"lenovo-nanoX1-sway" = nixpkgs.lib.nixosSystem {
+	  specialArgs = {inherit inputs;};
+	  modules = [
+	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
+	    ./base/laptop-base.nix
+	    ./desktop-environments/sway.nix
+	    inputs.stylix.nixosModules.stylix
+	    inputs.home-manager.nixosModules.home-manager
+	    {
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	    }
+	  ];
+	};
+	"lenovo-nanoX1-gnome" = nixpkgs.lib.nixosSystem {
+	  specialArgs = {inherit inputs;};
+	  modules = [
+	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
+	    ./base/laptop-base.nix
+	    ./desktop-environments/gnome.nix
+	    inputs.stylix.nixosModules.stylix
+	    inputs.home-manager.nixosModules.home-manager
+	    {
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
 	    }
 	  ];
 	};

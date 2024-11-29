@@ -4,8 +4,9 @@ _Yoyomanzoor_
 
 ### Organization
 
-- per-hardware configuration in ./base
-- per-DE configurations in ./desktop-environments
+- shared configurations in `./base/`
+- per-hardware configurations in `./hosts/`
+- per-DE configurations in `./desktop-environments/`
 
 Flake is organized as:
 

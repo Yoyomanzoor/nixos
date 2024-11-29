@@ -153,32 +153,41 @@
   };
   
   # Stylix settings
-  stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-  stylix.image = ./wallpaper.jpg;
-  stylix.cursor.package = pkgs.rose-pine-cursor;
-  stylix.cursor.name = "Bibata-Modern-Ice";
-  stylix.fonts = {
-    monospace = {
-      package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-      name = "JetBrainsMono Nerd Font Mono";
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    # targets = {
+    #   fish.enable = true;
+    #   gnome.enable = true;
+    #   grub.enable = true;
+    # };
+
+    image = ./wallpaper.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    polarity = "dark"; # light or dark or either
+    cursor.package = pkgs.rose-pine-cursor;
+    cursor.name = "rose-pine-cursor";
+    fonts = {
+      monospace = {
+        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
     };
-    sansSerif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans";
-    };
-    serif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Serif";
+    opacity = {
+      applications = 1.0;
+      terminal = 0.9;
+      desktop = 1.0;
+      popups = 0.9;
     };
   };
-  stylix.opacity = {
-    applications = 1.0;
-    terminal = 0.9;
-    desktop = 1.0;
-    popups = 0.9;
-  };
-  stylix.polarity = "dark"; # light or dark or either
   disabledModules = [ "${inputs.stylix}/modules/regreet/nixos.nix" ]; # See https://github.com/danth/stylix/issues/577
 
   #----=[ Fonts ]=----#

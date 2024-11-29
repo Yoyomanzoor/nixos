@@ -16,28 +16,9 @@
   main-user.userName = "yoyomanzoor";
 
   # Bootloader.
-  # boot.loader = {
-  #   efi = {
-  #     canTouchEfiVariables = true;
-  #     efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
-  #   };
-  #   grub = {
-  #      efiSupport = true;
-  #      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-  #      device = "nodev";
-  #   };
-  # };
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "nodev";
-  # boot.loader.grub.useOSProber = true;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot";
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.useOSProber = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -69,17 +50,11 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # this allows you to access `pkgsUnstable` anywhere in your config
-  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
-    inherit (pkgs.stdenv.hostPlatform) system;
-    inherit (config.nixpkgs) config;
-  };
-
   # Enable the X11 windowing system.
-  services.xserver.enable = false;
+  services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = false;
+  # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
@@ -88,28 +63,7 @@
     enable = true;
     wrapperFeatures.gtk = true;
     xwayland.enable = true;
-    extraPackages = with pkgs; [
-      swaylock
-      swayidle
-      dmenu
-      wmenu
-      grim
-      slurp
-      wl-clipboard
-      swaynotificationcenter
-      wofi
-      nwg-displays
-      pkgsUnstable.gtklock
-      swww
-      avizo
-      xdotool
-      wlogout
-      networkmanagerapplet
-    ];
   };
-  programs.waybar.enable = true;
-  xdg.portal.wlr.enable = true;
-  security.pam.services.gtklock = {}; # See https://github.com/jovanlanik/gtklock/issues/50
   
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -121,7 +75,7 @@
   services.printing.enable = true;
 
   # Enable bluetooth
-  hardware.bluetooth.enable = true;
+  # hardware.bluetooth.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -142,6 +96,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  # this allows you to access `pkgsUnstable` anywhere in your config
+  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    inherit (config.nixpkgs) config;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -156,6 +116,19 @@
     ripgrep
     jq
 
+    grim
+    slurp
+    wl-clipboard
+    swaynotificationcenter
+    wofi
+    nwg-displays
+    gtklock
+    swww
+    avizo
+    waybar
+    xdotool
+    wlogout
+
     ugrep
     eza
     fzf
@@ -164,11 +137,7 @@
     starship
     python3
 
-    vimiv-qt
-
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    rose-pine-cursor
-    blueman
   ];
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -200,11 +169,7 @@
   programs.fish.enable = true;
   programs.light.enable = true;
   programs.npm.enable = true;
-  programs.nm-applet = {
-    enable = true;
-    indicator = true;
-  };
-
+  programs.nm-applet.enable = true;
 
   # Git options
   programs.git = {

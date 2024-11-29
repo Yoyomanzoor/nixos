@@ -42,11 +42,22 @@
 	    # inputs.home-manager.nixosModules.default
 	  ];
 	};
-	"lenovo-yoga" = nixpkgs.lib.nixosSystem {
+	"lenovo-yoga-sway" = nixpkgs.lib.nixosSystem {
+	  specialArgs = {inherit inputs;};
+	  modules = [
+	    ./hosts/lenovo-yoga/configuration.nix
+	    ./base.nix
+	    ./sway.nix
+	    inputs.stylix.nixosModules.stylix
+	  ];
+	};
+	"lenovo-yoga-gnome" = nixpkgs.lib.nixosSystem {
 	  specialArgs = {inherit inputs;};
 	  modules = [
 	    ./hosts/lenovo-yoga/configuration.nix
 	    inputs.stylix.nixosModules.stylix
+	    ./base.nix
+	    ./sway.nix
 	  ];
 	};
       };

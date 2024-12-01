@@ -143,7 +143,6 @@
   programs.firefox.enable = false;
 
   # System programs
-  programs.light.enable = true;
   programs.nm-applet = {
     enable = true;
     indicator = true;

@@ -32,6 +32,7 @@
       xdotool
       wlogout
       networkmanagerapplet
+      brightnessctl
     ];
   };
   programs.waybar.enable = true;

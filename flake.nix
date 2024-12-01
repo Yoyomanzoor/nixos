@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     stylix = {
@@ -81,6 +81,7 @@
 	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
 	    ./base/laptop-base.nix
 	    ./desktop-environments/sway.nix
+	    ./code/default.nix
 	    inputs.stylix.nixosModules.stylix
 	    inputs.home-manager.nixosModules.home-manager
 	    {
@@ -96,6 +97,7 @@
 	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
 	    ./base/laptop-base.nix
 	    ./desktop-environments/gnome.nix
+	    ./code/default.nix
 	    inputs.stylix.nixosModules.stylix
 	    inputs.home-manager.nixosModules.home-manager
 	    {

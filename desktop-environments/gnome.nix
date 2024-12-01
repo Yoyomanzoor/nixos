@@ -9,6 +9,8 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  # Change brightness and stuff. Using brightnessctl for sway, so moved this guy here.
+  programs.light.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -21,10 +23,10 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  nixpkgs.overlays = [ (final: prev: {
-    gnome-backgrounds = final.gnome.gnome-backgrounds;
-  }) ]; # Cause there's some issue with this thing in current nix version
-  # environment.gnome.excludePackages = [ pkgs.gnome.gnome-backgrounds ];
+  # nixpkgs.overlays = [ (final: prev: {
+  #   gnome-backgrounds = final.gnome.gnome-backgrounds;
+  # }) ]; # Cause there's some issue with this thing in current nix version
+  # # environment.gnome.excludePackages = [ pkgs.gnome.gnome-backgrounds ];
 
   services.gnome.gnome-keyring.enable = true;
   environment.systemPackages = with pkgs; [
@@ -36,7 +38,7 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.rounded-corners
     gnomeExtensions.transparent-top-bar
-    gnomeExtensions.rounded-window-corners
+    # gnomeExtensions.rounded-window-corners
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.just-perfection
     gnomeExtensions.tiling-assistant

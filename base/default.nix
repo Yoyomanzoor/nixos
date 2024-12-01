@@ -132,6 +132,8 @@
       mpv
       vlc
       yt-dlp
+      w3m
+      slides
     ];
   };
 

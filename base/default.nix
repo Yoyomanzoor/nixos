@@ -83,7 +83,6 @@
     markdown-oxide # required as a package for mason
     wget
     nerdfonts
-    # home-manager
     lua
     gcc
     libgcc
@@ -104,11 +103,7 @@
 
     vimiv-qt
 
-    # inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    # rose-pine-cursor
     blueman
-
-    anki-bin
   ];
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -134,6 +129,8 @@
       yt-dlp
       w3m
       slides
+      ueberzugpp
+      anki-bin
     ];
   };
 

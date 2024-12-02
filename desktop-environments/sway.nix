@@ -4,6 +4,7 @@
 
 {
   imports = [
+    ./wayland.nix
   ];
 
   # Enable the X11 windowing system.
@@ -30,7 +31,6 @@
       swww
       avizo
       xdotool
-      wlogout
       networkmanagerapplet
       brightnessctl
     ];

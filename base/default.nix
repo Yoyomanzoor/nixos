@@ -59,6 +59,13 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # make /bin/bash work in scripts
+  # system.activationScripts.binbash = {
+  #   deps = [ "binsh" ];
+  #   text = ''
+  #        ln -s /bin/sh /bin/bash
+  #   '';
+  # };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;

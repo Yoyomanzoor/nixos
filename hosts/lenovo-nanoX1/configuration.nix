@@ -9,6 +9,17 @@
       ./default.nix
     ];
 
+  # fingerprinting
+  services.fprintd.enable = true;
+  # services.fprintd.tod.enable = true;
+
+  security.pam.services.gtklock = {
+    text = ''
+      auth sufficient pam_unix.so try_first_pass likeauth nullok
+      auth sufficient pam_fprintd.so
+      auth include login
+    '';
+  };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

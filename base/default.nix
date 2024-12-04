@@ -86,18 +86,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    pkgsUnstable.neovim
-    markdown-oxide # required as a package for mason
-    wget
+    # general environment
     nerdfonts
-    lua
-    gcc
-    libgcc
-    cargo
+    blueman
+
+    # command line tools
+    acpi
+    wget
     ripgrep
     jq
     unzip
-
     ugrep
     eza
     fzf
@@ -105,12 +103,22 @@
     bat
     fastfetch
     starship
+
+    # languages
+    lua
+    gcc
+    libgcc
+    cargo
     # python3
     nodejs_22
 
+    # neovim
+    pkgsUnstable.neovim
+    markdown-oxide # required as a package for mason
+
+    # apps
     vimiv-qt
 
-    blueman
   ];
   
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -144,6 +152,75 @@
   # Programming programs
   programs.fish.enable = true;
   programs.npm.enable = true;
+  programs.tmux = {
+    enable = true;
+    clock24 = false;
+    keyMode = "vi";
+    shortcut = "Space";
+    escapeTime = 0;
+    # plugins = with pkgs; [ # have to be tmuxPlugins!
+    #   tmuxPlugins.battery
+    #   tmuxPlugins.weather
+    #   tmuxPlugins.tmux-fzf
+    #   tmuxPlugins.fzf-tmux-url
+    #   tmuxPlugins.rose-pine
+    # ];
+    extraConfig = ''
+      # Yoyomanzoor tmux config
+
+      # set -g @plugin 'tmux-plugins/tmux-battery'
+      set -g @plugin 'rose-pine/tmux'
+      set -g @rose_pine_variant 'main' # Options are 'main', 'moon' or 'dawn'
+      set -g @plugin 'xamut/tmux-weather'
+      set -g @plugin 'sainnhe/tmux-fzf'
+      set -g @plugin 'MunifTanjim/tmux-mode-indicator'
+
+      ### Movement
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
+      bind -n M-Left select-pane -L
+      bind -n M-Right select-pane -R
+      bind -n M-Up select-pane -U
+      bind -n M-Down select-pane -D
+
+      ### Split
+      unbind '"'
+      unbind %
+      bind s split-window -h -c "#{pane_current_path}"
+      bind v split-window -v -c "#{pane_current_path}"
+
+      ### Resize
+      # bind S-h resize-pane -L 10
+      # bind S-l resize-pane -R 10
+      # bind S-j resize-pane -D 10
+      # bind S-k resize-pane -U 10
+
+      ### Mouse mode
+      set -g mouse on
+
+      ### FZF
+      TMUX_FZF_LAUNCH_KEY="C-f"
+
+      ### Battery
+      # set -g status-right '#{weather} | #{battery_status_bg} Batt: #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %I:%M %p'
+      set -g @rose_pine_status_left_prepend_section '#{tmux_mode_indicator}'
+      set -g @rose_pine_status_right_append_section "Battery: #(acpi | grep -o '[^ ]*%%') | %a %h-%d %I:%M %p"
+
+
+      ### Load plugins for NixOS
+      # literally the most annoying thing
+      # see https://github.com/NixOS/nixpkgs/pull/36790 and https://discourse.nixos.org/t/configuring-tmux-plugins-in-configuration-nix/1991
+
+      run-shell ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
+      run-shell ${pkgs.tmuxPlugins.weather}/share/tmux-plugins/weather/weather.tmux
+      run-shell ${pkgs.tmuxPlugins.tmux-fzf}/share/tmux-plugins/tmux-fzf/tmux-fzf.tmux
+      run-shell ${pkgs.tmuxPlugins.rose-pine}/share/tmux-plugins/rose-pine/rose-pine.tmux
+      run-shell ${pkgs.tmuxPlugins.mode-indicator}/share/tmux-plugins/mode-indicator/mode-indicator.tmux
+    '';
+    # extraTmuxConf = "run-shell ${pkgs.tmuxPlugins.sidebar}/share/tmux-plugins/sidebar/sidebar.tmux";
+  };
 
   # Other programs
   programs.firefox.enable = false;

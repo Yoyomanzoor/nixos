@@ -106,6 +106,22 @@
 	    }
 	  ];
 	};
+	"lenovo-nanoX1" = nixpkgs.lib.nixosSystem {
+	  specialArgs = {inherit inputs system;};
+	  modules = [
+	    ./hosts/lenovo-nanoX1/configuration.nix
+	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
+	    ./base/laptop-base.nix
+	    ./desktop-environments/bare.nix
+	    ./code/default.nix
+	    inputs.stylix.nixosModules.stylix
+	    inputs.home-manager.nixosModules.home-manager
+	    {
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	    }
+	  ];
+	};
       };
 
     };

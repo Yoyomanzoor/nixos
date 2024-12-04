@@ -103,6 +103,7 @@
     bat
     fastfetch
     starship
+    nix-search
 
     # languages
     lua
@@ -192,10 +193,10 @@
       bind v split-window -v -c "#{pane_current_path}"
 
       ### Resize
-      # bind S-h resize-pane -L 10
-      # bind S-l resize-pane -R 10
-      # bind S-j resize-pane -D 10
-      # bind S-k resize-pane -U 10
+      bind -n C-M-h resize-pane -L 10
+      bind -n C-M-l resize-pane -R 10
+      bind -n C-M-j resize-pane -D 10
+      bind -n C-M-k resize-pane -U 10
 
       ### Mouse mode
       set -g mouse on

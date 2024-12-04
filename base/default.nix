@@ -104,6 +104,7 @@
     fastfetch
     starship
     nix-search
+    trashy
 
     # languages
     lua

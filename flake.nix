@@ -48,6 +48,7 @@
 	    ./hosts/lenovo-yoga/configuration.nix
 	    ./base/laptop-base.nix
 	    ./desktop-environments/sway.nix
+	    ./code/default.nix
 	    inputs.stylix.nixosModules.stylix
 	    inputs.home-manager.nixosModules.home-manager
 	    {
@@ -63,6 +64,7 @@
 	    inputs.stylix.nixosModules.stylix
 	    ./base/laptop-base.nix
 	    ./desktop-environments/gnome.nix
+	    ./code/default.nix
 	    inputs.home-manager.nixosModules.home-manager
 	    {
 	      home-manager.useGlobalPkgs = true;
@@ -74,28 +76,13 @@
 	    }
 	  ];
 	};
-	"lenovo-nanoX1-sway" = nixpkgs.lib.nixosSystem {
+	"lenovo-nanoX1-wayland" = nixpkgs.lib.nixosSystem {
 	  specialArgs = {inherit inputs system;};
 	  modules = [
 	    ./hosts/lenovo-nanoX1/configuration.nix
 	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
 	    ./base/laptop-base.nix
 	    ./desktop-environments/sway.nix
-	    ./code/default.nix
-	    inputs.stylix.nixosModules.stylix
-	    inputs.home-manager.nixosModules.home-manager
-	    {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	    }
-	  ];
-	};
-	"lenovo-nanoX1-gnome" = nixpkgs.lib.nixosSystem {
-	  specialArgs = {inherit inputs system;};
-	  modules = [
-	    ./hosts/lenovo-nanoX1/configuration.nix
-	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
-	    ./base/laptop-base.nix
 	    ./desktop-environments/gnome.nix
 	    ./code/default.nix
 	    inputs.stylix.nixosModules.stylix

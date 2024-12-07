@@ -7,11 +7,6 @@
     ./wayland.nix
   ];
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = false;
-
-  services.gnome.gnome-keyring.enable = true;
-
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -34,11 +29,12 @@
       networkmanagerapplet
       brightnessctl
     ];
+    extraSessionCommands = ''
+      # SDL:
+      export SDL_VIDEODRIVER=wayland
+    '';
   };
+
   programs.waybar.enable = true;
   security.pam.services.gtklock = {}; # See https://github.com/jovanlanik/gtklock/issues/50
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-  };
 }

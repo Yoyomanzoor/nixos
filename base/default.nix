@@ -127,7 +127,7 @@
   users.users.yoyomanzoor = {
     isNormalUser = true;
     description = "Yoyomanzoor";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "input" ];
     # openssh.authorizedKeys.keyFiles = [
     #   ~/.ssh
     # ];
@@ -233,7 +233,7 @@
     indicator = true;
   };
 
-  # Git options - some git configs are housed in home-manager in ~/.config/home-manager/ !
+  # Git options - some git configs are housed in home-manager in ../home.nix !
   programs.git = {
     enable = true;
     config = {

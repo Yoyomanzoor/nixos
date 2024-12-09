@@ -90,6 +90,9 @@
 	    {
 	      home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
+	 #      home-manager.sharedModules = [{
+		# stylix.targets.xyz.enable = false;
+	 #      }];
 	    }
 	  ];
 	};

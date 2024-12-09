@@ -71,11 +71,56 @@
     EDITOR = "nvim";
   };
 
+
   programs.git = {
     enable = true;
     userName = "yoyomanzoor-NixOS";
     userEmail = "smanzoor@umich.edu";
   };
+
+  # Stylix settings
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    targets = {
+      fish.enable = true;
+      gnome.enable = true;
+      kitty.enable = true;
+      waybar.enable = true;
+    };
+
+    image = ./wallpaper.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    polarity = "dark"; # light or dark or either
+    cursor.package = pkgs.bibata-cursors;
+    cursor.name = "Bibata-Modern-Ice";
+    fonts = {
+      monospace = {
+        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+    opacity = {
+      applications = 0.9;
+      terminal = 0.9;
+      desktop = 1.0;
+      popups = 0.9;
+    };
+  };
+
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -93,5 +138,6 @@
 
   imports = [
     ./dotfiles/swaync/swaync.nix
+    ./dotfiles/kitty/kitty.nix
   ];
 }

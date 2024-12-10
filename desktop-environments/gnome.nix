@@ -31,6 +31,6 @@
     gnomeExtensions.gamemode-indicator-in-system-settings
     gnomeExtensions.open-bar
     gnomeExtensions.paperwm
-    gnome.gnome-terminal
+    gnome-terminal
   ];
 }

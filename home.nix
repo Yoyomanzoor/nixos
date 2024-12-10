@@ -120,24 +120,12 @@
     };
   };
 
-
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # TODO: Finish importing sway config here https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.sway.enable
-  # wayland.windowManager.sway = {
-  #   config = {
-  #     bars
-  #   }
-  # }
-
-  xdg.configFile = {
-    "sway/config".source = ./dotfiles/sway/config;
-  };
 
   imports = [
     ./dotfiles/swaync/swaync.nix
     ./dotfiles/kitty/kitty.nix
+    ./dotfiles/sway/sway.nix
   ];
 }

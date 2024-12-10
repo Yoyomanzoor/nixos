@@ -105,6 +105,7 @@
     starship
     nix-search
     trashy
+    killall
 
     # languages
     lua

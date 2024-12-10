@@ -16,7 +16,7 @@
     enable = true;
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
-    configPackages = [ pkgs.gnome.gnome-session ];
+    configPackages = [ pkgs.gnome-session ];
   };
 
   # Enable the X11 windowing system.

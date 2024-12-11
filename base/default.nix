@@ -258,12 +258,13 @@
 
   # Stylix settings
   stylix = {
-  #   enable = true;
-  #   autoEnable = true;
-  #   targets = {
+    enable = true;
+    autoEnable = true;
+    targets = {
   #     fish.enable = true;
-  #     gnome.enable = true;
-  #   };
+      gnome.enable = true;
+      plymouth.enable = true;
+    };
 
     image = ../wallpaper.png;
   #   base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";

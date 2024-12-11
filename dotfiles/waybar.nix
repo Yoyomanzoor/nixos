@@ -34,7 +34,7 @@
         };
 
         "sway/mode" = {
-          format = "<span style=\"italic\">{}</span>";
+          format = "<span style='italic'>{}</span>";
         };
 
         tray = {

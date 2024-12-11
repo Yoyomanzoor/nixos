@@ -58,7 +58,7 @@
       fish.enable = true;
       fuzzel.enable = true;
       fzf.enable = true;
-      gnome.enable = true;
+      # gnome.enable = true;
       gtk.enable = true;
       kde.enable = true;
       kitty.enable = true;
@@ -80,7 +80,7 @@
 
     image = ./wallpaper.png;
     # https://tinted-theming.github.io/base16-gallery/
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
     polarity = "dark"; # light or dark or either
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";

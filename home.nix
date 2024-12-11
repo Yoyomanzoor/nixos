@@ -127,7 +127,6 @@
     swaylock.enable = true;
     tmux.enable = true;
     # vscode.enable = true;
-    # waybar.enable = true;
     wofi.enable = true;
     zathura.enable = true;
   };
@@ -142,5 +141,6 @@
     ./dotfiles/kitty.nix
     ./dotfiles/sway/sway.nix
     ./dotfiles/swaync/swaync.nix
+    ./dotfiles/waybar.nix
   ];
 }

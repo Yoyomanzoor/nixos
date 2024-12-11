@@ -149,6 +149,7 @@
       slides
       ueberzugpp
       anki-bin
+      dolphin
     ];
   };
 
@@ -257,44 +258,44 @@
 
   # Stylix settings
   stylix = {
-    enable = true;
-    autoEnable = true;
-    targets = {
-      fish.enable = true;
-      gnome.enable = true;
-    };
+  #   enable = true;
+  #   autoEnable = true;
+  #   targets = {
+  #     fish.enable = true;
+  #     gnome.enable = true;
+  #   };
 
     image = ../wallpaper.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-    polarity = "dark"; # light or dark or either
-    cursor.package = lib.mkForce pkgs.bibata-cursors;
-    cursor.name = "Bibata-Modern-Ice";
-    fonts = {
-      monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-        name = "JetBrainsMono Nerd Font Mono";
-      };
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
-      };
-    };
-    opacity = {
-      applications = 0.9;
-      terminal = 0.9;
-      desktop = 1.0;
-      popups = 0.9;
-    };
+  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+  #   polarity = "dark"; # light or dark or either
+  #   cursor.package = lib.mkForce pkgs.bibata-cursors;
+  #   cursor.name = "Bibata-Modern-Ice";
+  #   fonts = {
+  #     monospace = {
+  #       package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+  #       name = "JetBrainsMono Nerd Font Mono";
+  #     };
+  #     sansSerif = {
+  #       package = pkgs.dejavu_fonts;
+  #       name = "DejaVu Sans";
+  #     };
+  #     serif = {
+  #       package = pkgs.dejavu_fonts;
+  #       name = "DejaVu Serif";
+  #     };
+  #     emoji = {
+  #       package = pkgs.noto-fonts-color-emoji;
+  #       name = "Noto Color Emoji";
+  #     };
+  #   };
+  #   opacity = {
+  #     applications = 0.9;
+  #     terminal = 0.9;
+  #     desktop = 1.0;
+  #     popups = 0.9;
+  #   };
   };
-  disabledModules = [ "${inputs.stylix}/modules/regreet/nixos.nix" ]; # See https://github.com/danth/stylix/issues/577
+  # disabledModules = [ "${inputs.stylix}/modules/regreet/nixos.nix" ]; # See https://github.com/danth/stylix/issues/577
 
   #----=[ Fonts ]=----#
   # fonts = {

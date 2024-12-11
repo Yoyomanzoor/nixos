@@ -9,6 +9,8 @@
   environment.systemPackages = with pkgs; [
     R
     micromamba
-    android-tools
   ];
+
+  programs.adb.enable = true;
+  users.users.yoyomanzoor.extraGroups = ["adbusers"];
 }

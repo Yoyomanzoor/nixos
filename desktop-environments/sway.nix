@@ -28,6 +28,7 @@
       xdotool
       networkmanagerapplet
       brightnessctl
+      waybar
     ];
     extraSessionCommands = ''
       # SDL:
@@ -35,7 +36,7 @@
     '';
   };
 
-  programs.waybar.enable = true;
+  # programs.waybar.enable = true;
   security.pam.services.gtklock = {}; # See https://github.com/jovanlanik/gtklock/issues/50
   security.polkit.enable = true; # https://nixos.wiki/wiki/Sway
 }

@@ -79,7 +79,7 @@ in
           l = "resize grow width 10 px";
         };
       };
-      keybindings = lib.mkOptionDefault {
+      keybindings = lib.mkOptionDefault { # https://github.com/nix-community/home-manager/issues/5804
         # Focus
         "${mod}+h" = "focus left";
         "${mod}+j" = "focus down";
@@ -157,7 +157,7 @@ in
         # Layout toggle
         "${mod}+t" = "toggle tabbed splith splitv";
         # Resize mode
-        "${mod}+r" = "mode 'Resize Mode";
+        "${mod}+r" = "mode 'resize'";
         # Gaps
         "${mod}+minus" = "gaps inner current minus 10";
         "${mod}+equal" = "gaps inner current plus 10";
@@ -172,7 +172,7 @@ in
         "XF86MonBrightnessDown" = "exec brightnessctl s 5%-";
         "XF86Display" = "exec --no-startup-id nwg-displays";
         # Exit app
-        "${mod}+Shift+q" = "[con_id='__focused__'] kill";
+        "${mod}+Shift+q" = "kill";
         # Reload sway
         "${mod}+Shift+c" = "exec $send_reload_pending_tick && swaymsg reload";
         # Power down
@@ -200,6 +200,18 @@ in
       ];
     };
     extraConfig = ''
+      workspace 1 output eDP-1
+      workspace 2 output eDP-1
+      workspace 3 output eDP-1
+      workspace 4 output eDP-1
+      workspace 5 output HDMI-A-1
+      workspace 6 output HDMI-A-1
+      workspace 7 output HDMI-A-1
+      workspace 8 output HDMI-A-1
+      workspace 5 output DP-3
+      workspace 6 output DP-3
+      workspace 7 output DP-3
+      workspace 8 output DP-3
       bindgesture swipe:right workspace prev
       bindgesture swipe:left workspace next
       popup_during_fullscreen smart

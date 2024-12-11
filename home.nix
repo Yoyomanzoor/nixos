@@ -86,11 +86,10 @@
       fish.enable = true;
       gnome.enable = true;
       kitty.enable = true;
-      waybar.enable = true;
     };
 
     image = ./wallpaper.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
     polarity = "dark"; # light or dark or either
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";

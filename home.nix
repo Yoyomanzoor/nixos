@@ -79,7 +79,8 @@
     };
 
     image = ./wallpaper.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+    # https://tinted-theming.github.io/base16-gallery/
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     polarity = "dark"; # light or dark or either
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";

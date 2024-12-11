@@ -1,23 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "yoyomanzoor";
   home.homeDirectory = "/home/yoyomanzoor";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "24.11"; # Please read the comment before changing.
+  home.stateVersion = "24.11";
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -31,9 +20,10 @@
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    (writeShellScriptBin {
+      name = "fuzzel-emoji";
+      text = ./scripts/fuzzel-emoji;
+    })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -83,9 +73,31 @@
     enable = true;
     autoEnable = true;
     targets = {
+      alacritty.enable = true;
+      avizo.enable = true;
+      bat.enable = true;
+      firefox.enable = true;
       fish.enable = true;
+      fuzzel.enable = true;
+      fzf.enable = true;
       gnome.enable = true;
+      gtk.enable = true;
+      kde.enable = true;
       kitty.enable = true;
+      kitty.variant256Colors = true;
+      lazygit.enable = true;
+      neovim.enable = true;
+      neovim.transparentBackground.main = true;
+      qutebrowser.enable = true;
+      sway.enable = true;
+      swaylock.enable = true;
+      swaync.enable = true;
+      tmux.enable = true;
+      vesktop.enable = true;
+      vscode.enable = true;
+      waybar.enable = true;
+      wofi.enable = true;
+      zathura.enable = true;
     };
 
     image = ./wallpaper.png;
@@ -123,8 +135,10 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./dotfiles/swaync/swaync.nix
-    ./dotfiles/kitty/kitty.nix
+    ./dotfiles/avizo.nix
+    ./dotfiles/kitty.nix
     ./dotfiles/sway/sway.nix
+    ./dotfiles/swaync/swaync.nix
+    ./dotfiles/zathura.nix
   ];
 }

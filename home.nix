@@ -7,9 +7,7 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+    # hello # package that prints hello
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -17,17 +15,13 @@
     # # fonts?
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    (writeShellScriptBin {
-      name = "fuzzel-emoji";
-      text = ./scripts/fuzzel-emoji;
-    })
+    # (writeShellScriptBin {
+    #   name = "fuzzel-emoji";
+    #   text = ./scripts/fuzzel-emoji;
+    # })
+    # (writeShellScriptBin "fuzzel-emoji" (builtins.readFile ./scripts/fuzzel-emoji))
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -41,22 +35,6 @@
     # '';
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/yoyomanzoor/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -131,14 +109,37 @@
     };
   };
 
+  services = {
+    avizo.enable = true;
+    swaync.enable = true;
+  };
+
+  programs = {
+    # alacritty.enable = true;
+    bat.enable = true;
+    firefox.enable = true;
+    fuzzel.enable = true;
+    fzf.enable = true;
+    lazygit.enable = true;
+    # neovim.enable = true;
+    # qutebrowser.enable = true;
+    swaylock.enable = true;
+    tmux.enable = true;
+    # vscode.enable = true;
+    # waybar.enable = true;
+    wofi.enable = true;
+    zathura.enable = true;
+  };
+
+  gtk.enable = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   imports = [
-    ./dotfiles/avizo.nix
+    ./dotfiles/fish.nix
     ./dotfiles/kitty.nix
     ./dotfiles/sway/sway.nix
     ./dotfiles/swaync/swaync.nix
-    ./dotfiles/zathura.nix
   ];
 }

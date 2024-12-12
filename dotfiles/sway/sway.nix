@@ -5,7 +5,27 @@ let
 
 in
 {
-  # TODO: Finish importing sway config here https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.sway.enable
+  # xdg.configFile = {
+  #   "sway/config".source = ./dotfiles/sway/config;
+  # };
+
+  home.packages = with pkgs; [
+    (writeShellScriptBin "gtklock-screen" (builtins.readFile ./gtklock-screen))
+    (writeShellScriptBin "swayworkspace" (builtins.readFile ./swayworkspace))
+    (writeShellScriptBin "fuzzel-emoji" (builtins.readFile ./fuzzel-emoji))
+  ];
+
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      { timeout = 1800; command = "gtklock-screen"; }
+      { timeout = 3600; command = "swaymsg 'output * dpms off'"; resumeCommand = "swaymsg 'output * dpms on'"; }
+    ];
+    extraArgs = [
+      "before-sleep 'playerctl pause'"
+      "before-sleep 'gtklock-screen'"
+    ];
+  };
 
   wayland.windowManager.sway = {
     enable = true;
@@ -93,14 +113,14 @@ in
         "${mod}+z" = "focus child";
         "${mod}+Shift+t" = "focus mode_toggle";
         # Navigation
-        "${mod}+Ctrl+l" = "exec ~/.local/bin/swayworkspace navigate next";
-        "${mod}+Ctrl+h" = "exec ~/.local/bin/swayworkspace navigate previous";
-        "${mod}+Ctrl+Shift+l" = "exec ~/.local/bin/swayworkspace move next";
-        "${mod}+Ctrl+Shift+h" = "exec ~/.local/bin/swayworkspace move previous";
-        "${mod}+Ctrl+Right" = "exec ~/.local/bin/swayworkspace navigate next";
-        "${mod}+Ctrl+Left" = "exec ~/.local/bin/swayworkspace navigate previous";
-        "${mod}+Ctrl+Shift+Right" = "exec ~/.local/bin/swayworkspace move next";
-        "${mod}+Ctrl+Shift+Left" = "exec ~/.local/bin/swayworkspace move previous";
+        "${mod}+Ctrl+l" = "exec swayworkspace navigate next";
+        "${mod}+Ctrl+h" = "exec swayworkspace navigate previous";
+        "${mod}+Ctrl+Shift+l" = "exec swayworkspace move next";
+        "${mod}+Ctrl+Shift+h" = "exec swayworkspace move previous";
+        "${mod}+Ctrl+Right" = "exec swayworkspace navigate next";
+        "${mod}+Ctrl+Left" = "exec swayworkspace navigate previous";
+        "${mod}+Ctrl+Shift+Right" = "exec swayworkspace move next";
+        "${mod}+Ctrl+Shift+Left" = "exec swayworkspace move previous";
         "${mod}+1" = "workspace number 1";
         "${mod}+2" = "workspace number 2";
         "${mod}+3" = "workspace number 3";
@@ -185,7 +205,7 @@ in
         "${mod}+Shift+Return" = "exec --no-startup-id vieb";
         "${mod}+p" = "exec grim -g '$(slurp) - | wl-copy";
         # Emojis
-        "${mod}+period" = "exec bash ~/.local/bin/fuzzel-emoji";
+        "${mod}+period" = "exec bash fuzzel-emoji";
       };
       keycodebindings = {
         "172" = "exec playerctl play-pause";
@@ -217,12 +237,5 @@ in
       popup_during_fullscreen smart
     '';
   };
-  # disabledModules = [ "/modules/regreet/nixos.nix" ]; # See https://github.com/danth/stylix/issues/577
 
-
-
-
-  # xdg.configFile = {
-  #   "sway/config".source = ./dotfiles/sway/config;
-  # };
 }

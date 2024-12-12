@@ -1,0 +1,5 @@
+#/bin/sh
+
+gtklock --background $(find /home/yoyomanzoor/Pictures/space/* | shuf -n 1) -f -t "%I:%m %p"
+
+

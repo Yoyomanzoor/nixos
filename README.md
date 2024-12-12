@@ -18,6 +18,9 @@ Once NixOS is installed, there are two possibilities:
 - shared configurations in `./base/`
 - per-hardware configurations in `./hosts/`
 - per-DE configurations in `./desktop-environments/`
+- coding tools in `./code/`
+- home configs called by `home.nix` all in `./dotfiles/`
+- wallpapers in `./wallpapers/`, need to be moved to `./wallpaper.png` to be used
 
 Flake is organized as:
 
@@ -28,8 +31,6 @@ Flake is organized as:
     - DE_1
     - DE_2
 - etc
-
-Home configs in dotfiles and called by `home.nix`
 
 ### Build commands
 

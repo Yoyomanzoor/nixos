@@ -29,8 +29,10 @@ Flake is organized as:
     - DE_2
 - etc
 
+Home configs in dotfiles and called by `home.nix`
 
 ### Build commands
+
 ```bash
 sudo nixos-rebuild switch --flake ~/(location-of-this-repo)#(PC)-(DE)
 ```

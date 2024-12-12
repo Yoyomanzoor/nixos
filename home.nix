@@ -80,7 +80,7 @@
 
     image = ./wallpaper.png;
     # https://tinted-theming.github.io/base16-gallery/
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyodark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/zenbones.yaml";
     polarity = "dark"; # light or dark or either
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
@@ -142,5 +142,6 @@
     ./dotfiles/sway/sway.nix
     ./dotfiles/swaync/swaync.nix
     ./dotfiles/waybar.nix
+    ./dotfiles/vieb/vieb.nix
   ];
 }

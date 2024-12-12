@@ -142,6 +142,7 @@
     ./dotfiles/sway/sway.nix
     ./dotfiles/swaync/swaync.nix
     ./dotfiles/waybar.nix
+    ./dotfiles/wlogout/wlogout.nix
     ./dotfiles/vieb/vieb.nix
   ];
 }

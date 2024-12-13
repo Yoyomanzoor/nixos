@@ -203,7 +203,7 @@ in
         "${mod}+c" = "exec kitty -e nvim";
         "${mod}+e" = "exec kitty -e ranger";
         "${mod}+Shift+Return" = "exec --no-startup-id vieb";
-        "${mod}+p" = "exec grim -g '$(slurp) - | wl-copy";
+        "${mod}+p" = "exec grim -g '$(slurp)' - | wl-copy";
         # Emojis
         "${mod}+period" = "exec bash fuzzel-emoji";
       };

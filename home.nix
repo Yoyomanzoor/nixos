@@ -120,12 +120,10 @@
     bat.enable = true;
     firefox.enable = true;
     fuzzel.enable = true;
-    fzf.enable = true;
     lazygit.enable = true;
     # neovim.enable = true;
     # qutebrowser.enable = true;
     swaylock.enable = true;
-    tmux.enable = true;
     # vscode.enable = true;
     wofi.enable = true;
     zathura.enable = true;
@@ -138,9 +136,11 @@
 
   imports = [
     ./dotfiles/fish.nix
+    ./dotfiles/fzf.nix
     ./dotfiles/kitty.nix
     ./dotfiles/sway/sway.nix
     ./dotfiles/swaync/swaync.nix
+    ./dotfiles/tmux.nix
     ./dotfiles/waybar.nix
     ./dotfiles/wlogout/wlogout.nix
     ./dotfiles/vieb/vieb.nix

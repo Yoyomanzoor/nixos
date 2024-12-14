@@ -80,7 +80,7 @@
 
     image = ./wallpaper.png;
     # https://tinted-theming.github.io/base16-gallery/
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/zenbones.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
     polarity = "dark"; # light or dark or either
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
@@ -126,7 +126,6 @@
     swaylock.enable = true;
     # vscode.enable = true;
     wofi.enable = true;
-    zathura.enable = true;
   };
 
   gtk.enable = true;
@@ -144,5 +143,6 @@
     ./dotfiles/waybar.nix
     ./dotfiles/wlogout/wlogout.nix
     ./dotfiles/vieb/vieb.nix
+    ./dotfiles/zathura.nix
   ];
 }

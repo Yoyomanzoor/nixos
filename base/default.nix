@@ -199,7 +199,7 @@
     };
 
     image = ../wallpaper.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/zenbones.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
   #   polarity = "dark"; # light or dark or either
   #   cursor.package = lib.mkForce pkgs.bibata-cursors;
   #   cursor.name = "Bibata-Modern-Ice";

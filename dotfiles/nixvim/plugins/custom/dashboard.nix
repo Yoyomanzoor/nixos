@@ -5,6 +5,9 @@
       theme = "doom";
       config = {
         header = [
+          ""
+          ""
+          ""
           "/\\   __                                "
           "\\ \\_/ /__  _   _  ___/\\  /🪀 _ __ ___  "
           " \\   / _ \\| | | |/ _ \\ \\/ / | '_ ` _ \\ "
@@ -34,10 +37,28 @@
             action = {
               __raw = "function(path) vim.cmd('Telescope file_browser hidden=true') end";
             };
-            desc = "files";
+            desc = "directory";
             icon = " ";
             icon_hl = "@variable";
-            key = "f";
+            key = "d";
+          }
+          {
+            action = {
+              __raw = "function(path) vim.cmd('Telescope find_files hidden=true cwd=~') end";
+            };
+            desc = "files";
+            icon = "󰈔 ";
+            icon_hl = "@variable";
+            key = "d";
+          }
+          {
+            action = {
+              __raw = "function(path) vim.cmd('Ranger') end";
+            };
+            desc = "ranger";
+            icon = "󱡁 ";
+            icon_hl = "@variable";
+            key = "r";
           }
         ];
         footer = [ "Yoyo 󱄅 Manzoor" ];

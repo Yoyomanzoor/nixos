@@ -4,6 +4,7 @@
       enable = true;
       settings = {
         bypass_save_filetypes = [ "dashboard" ];
+        auto_restore_last_session = false;
       };
     };
     keymaps = [

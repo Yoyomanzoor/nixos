@@ -1,10 +1,10 @@
-{
+{ config, ... }: {
   programs.nixvim = {
     plugins.undotree = {
       enable = true;
     };
     opts = {
-      undodir = "~/.vim/undodir";
+      undodir = "${config.xdg.configHome}/.local/share/nvim/undodir";
     };
     keymaps = [
       {

@@ -49,6 +49,8 @@
       # Some languages (like typscript) have entire language plugins that can be useful:
       #    `https://nix-community.github.io/nixvim/plugins/typescript-tools/index.html?highlight=typescript-tools#pluginstypescript-toolspackage`
       servers = {
+        # https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#rnix
+
         # scripting languages
         nixd.enable = true;
         # rnix.enable = true;

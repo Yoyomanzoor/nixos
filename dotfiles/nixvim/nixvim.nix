@@ -77,6 +77,11 @@
     keymaps = [
       {
         mode = "n";
+        key = "Q";
+        action = "<cmd>x<CR>";
+      }
+      {
+        mode = "n";
         key = "<Esc";
         action = "<cmd>nohlsearch<CR>";
       }

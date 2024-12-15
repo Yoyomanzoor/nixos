@@ -42,6 +42,9 @@
         dap-go = {
           enable = true;
         };
+        dap-python = {
+          enable = true;
+        };
       };
     };
 

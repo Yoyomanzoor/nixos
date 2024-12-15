@@ -15,10 +15,10 @@
       {
         mode = "n";
         key = "<leader>gg";
-        action = ''
+        action.__raw = ''
           function()
             vim.cmd('lcd %:p:h')
-            vim.cmd(FloatermNew --autoclose=1 lazygit)
+            vim.cmd('FloatermNew --autoclose=1 lazygit')
           end
         '';
         options = {

@@ -36,6 +36,7 @@
               file_browser = true;
               folder_browser = true;
             };
+            no_ignore = true;
           };
         };
         fzf-native.enable = true;

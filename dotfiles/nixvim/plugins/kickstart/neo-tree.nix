@@ -6,6 +6,10 @@
       enable = true;
 
       filesystem = {
+        filteredItems = {
+          visible = true;
+          hideHidden = false;
+        };
         window = {
           mappings = {
             "\\" = "close_window";

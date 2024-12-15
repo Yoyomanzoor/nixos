@@ -25,6 +25,7 @@
       starship init fish | source
     '';
     shellAliases = {
+      cd = "z";
       ls = "eza -al --color=always --group-directories-first --icons=auto"; # preferred listing
       la = "eza -a --color=always --group-directories-first --icons=auto";
       ll = "eza -lha --color=always --group-directories-first --icons=auto --sort=name";
@@ -55,11 +56,11 @@
       rip = "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl";
     };
     shellAbbrs = {
-      ".." = "cd ..";
-      "..." = "cd ../..";
-      ".3" = "cd ../../..";
-      ".4" = "cd ../../../..";
-      ".5" = "cd ../../../../..";
+      ".." = "z ..";
+      "..." = "z ../..";
+      ".3" = "z ../../..";
+      ".4" = "z ../../../..";
+      ".5" = "z ../../../../..";
       mkdir = "mkdir -p";
     };
     preferAbbrs = true;

@@ -5,6 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -42,61 +46,24 @@
 	    inputs.stylix.nixosModules.stylix
 	  ];
 	};
-	"lenovo-yoga-sway" = nixpkgs.lib.nixosSystem {
-	  specialArgs = {inherit inputs;};
-	  modules = [
-	    ./hosts/lenovo-yoga/configuration.nix
-	    ./base/laptop-base.nix
-	    ./desktop-environments/sway.nix
-	    ./code/default.nix
-	    inputs.stylix.nixosModules.stylix
-	    inputs.home-manager.nixosModules.home-manager
-	    {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	    }
-	  ];
-	};
-	"lenovo-yoga-gnome" = nixpkgs.lib.nixosSystem {
-	  specialArgs = {inherit inputs;};
-	  modules = [
-	    ./hosts/lenovo-yoga/configuration.nix
-	    inputs.stylix.nixosModules.stylix
-	    ./base/laptop-base.nix
-	    ./desktop-environments/gnome.nix
-	    ./code/default.nix
-	    inputs.home-manager.nixosModules.home-manager
-	    {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      # home-manager.users.yoyomanzoor = import ./home.nix;
-
-	      # Optionally, use home-manager.extraSpecialArgs to pass
-	      # arguments to home.nix
-	    }
-	  ];
-	};
 	"lenovo-nanoX1-wayland" = nixpkgs.lib.nixosSystem {
 	  specialArgs = {inherit inputs system;};
 	  modules = [
-	    ./hosts/lenovo-nanoX1/configuration.nix
-	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1
-	    ./base/laptop-base.nix
-	    ./desktop-environments/sway.nix
-	    ./desktop-environments/gnome.nix
-	    ./code/default.nix
-	    inputs.stylix.nixosModules.stylix
-	    inputs.home-manager.nixosModules.home-manager
+	    ./hosts/lenovo-nanoX1/configuration.nix # hardware specific stuff
+	    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1 # optimizations
+	    ./base/laptop-base.nix # laptop tools
+	    ./desktop-environments/sway.nix # sway WM
+	    ./desktop-environments/gnome.nix # gnome DE
+	    ./code/default.nix # basic coding tools
+	    inputs.stylix.nixosModules.stylix # theming
+	    inputs.home-manager.nixosModules.home-manager # home-manager
 	    {
 	      home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
-	 #      home-manager.sharedModules = [{
-		# stylix.targets.xyz.enable = false;
-	 #      }];
 	    }
 	  ];
 	};
-	"lenovo-nanoX1" = nixpkgs.lib.nixosSystem {
+	"lenovo-nanoX1" = nixpkgs.lib.nixosSystem { # TTY only
 	  specialArgs = {inherit inputs system;};
 	  modules = [
 	    ./hosts/lenovo-nanoX1/configuration.nix

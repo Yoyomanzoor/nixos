@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     R
     micromamba
+    julia-lts
   ];
 
   programs.adb.enable = true;

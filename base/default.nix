@@ -112,11 +112,11 @@
     gcc
     libgcc
     cargo
-    # python3
+    python39
     nodejs_22
 
     # neovim
-    pkgsUnstable.neovim
+    # pkgsUnstable.neovim
     markdown-oxide # required as a package for mason
 
     # apps
@@ -199,7 +199,7 @@
     };
 
     image = ../wallpaper.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
   #   polarity = "dark"; # light or dark or either
   #   cursor.package = lib.mkForce pkgs.bibata-cursors;
   #   cursor.name = "Bibata-Modern-Ice";

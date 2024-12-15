@@ -80,7 +80,7 @@
 
     image = ./wallpaper.png;
     # https://tinted-theming.github.io/base16-gallery/
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     polarity = "dark"; # light or dark or either
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
@@ -121,11 +121,15 @@
     firefox.enable = true;
     fuzzel.enable = true;
     lazygit.enable = true;
-    # neovim.enable = true;
     # qutebrowser.enable = true;
     swaylock.enable = true;
     # vscode.enable = true;
     wofi.enable = true;
+    direnv = {
+      enable = true;
+      # enableFishIntegration = true; # Not needed for Fish
+      nix-direnv.enable = true;
+    };
   };
 
   gtk.enable = true;
@@ -137,6 +141,7 @@
     ./dotfiles/fish.nix
     ./dotfiles/fzf.nix
     ./dotfiles/kitty.nix
+    ./dotfiles/nixvim/nixvim.nix
     ./dotfiles/sway/sway.nix
     ./dotfiles/swaync/swaync.nix
     ./dotfiles/tmux.nix

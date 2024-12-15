@@ -8,6 +8,7 @@
     ./noice.nix
     ./notify.nix
     ./ranger.nix
+    ./todo-comments.nix
     ./undotree.nix
   ];
 }

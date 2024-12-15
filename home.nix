@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  
   home.username = "yoyomanzoor";
   home.homeDirectory = "/home/yoyomanzoor";
 
@@ -81,7 +82,7 @@
 
     image = ./wallpaper.png;
     # https://tinted-theming.github.io/base16-gallery/
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.theme.theme}.yaml";
     polarity = "dark"; # light or dark or either
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
@@ -140,6 +141,7 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./theme.nix
     ./dotfiles/fish.nix
     ./dotfiles/fzf.nix
     ./dotfiles/kitty.nix

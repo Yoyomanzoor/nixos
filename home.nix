@@ -144,7 +144,7 @@
     ./theme.nix
     ./dotfiles/fish.nix
     ./dotfiles/fzf.nix
-    ./dotfiles/hyprland/hyprland.nix
+    # ./dotfiles/hyprland/hyprland.nix
     ./dotfiles/kitty.nix
     ./dotfiles/nixvim/nixvim.nix
     ./dotfiles/sway/sway.nix

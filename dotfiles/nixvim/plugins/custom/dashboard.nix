@@ -49,7 +49,7 @@
             desc = "files";
             icon = "󰈔 ";
             icon_hl = "@variable";
-            key = "d";
+            key = "f";
           }
           {
             action = {

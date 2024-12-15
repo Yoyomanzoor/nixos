@@ -130,6 +130,7 @@
       # enableFishIntegration = true; # Not needed for Fish
       nix-direnv.enable = true;
     };
+    zoxide.enable = true;
   };
 
   gtk.enable = true;
@@ -149,5 +150,6 @@
     ./dotfiles/wlogout/wlogout.nix
     ./dotfiles/vieb/vieb.nix
     ./dotfiles/zathura.nix
+    # TODO: Ranger
   ];
 }

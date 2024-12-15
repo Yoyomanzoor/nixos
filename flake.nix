@@ -54,6 +54,7 @@
 	    ./base/laptop-base.nix # laptop tools
 	    ./desktop-environments/sway.nix # sway WM
 	    ./desktop-environments/gnome.nix # gnome DE
+	    ./desktop-environments/hyprland.nix
 	    ./code/default.nix # basic coding tools
 	    ./theme.nix # theme
 	    inputs.stylix.nixosModules.stylix # theming

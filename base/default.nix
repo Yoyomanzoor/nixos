@@ -149,7 +149,6 @@
       slides
       ueberzugpp
       anki-bin
-      dolphin
     ];
   };
 
@@ -159,6 +158,7 @@
   programs.tmux.enable = true;
 
   # Other programs
+  programs.thunar.enable = true;
   programs.firefox.enable = false;
 
   # System programs

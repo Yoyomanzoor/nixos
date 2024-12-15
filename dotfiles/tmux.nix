@@ -10,13 +10,31 @@
     shortcut = "Space";
     escapeTime = 0;
     terminal = "screen-256color";
+    plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.weather;
+        extraConfig = "run-shell ${pkgs.tmuxPlugins.weather}/share/tmux-plugins/weather/tmux-weather.tmux";
+      }
+      {
+        plugin = tmuxPlugins.jump;
+        extraConfig = "run-shell ${pkgs.tmuxPlugins.jump}/share/tmux-plugins/jump/tmux-jump.tmux";
+      }
+    ];
     extraConfig = ''
       # Yoyomanzoor tmux config
 
+      ### Load plugins for NixOS
+      # literally the most annoying thing
+      # see https://github.com/NixOS/nixpkgs/pull/36790 and https://discourse.nixos.org/t/configuring-tmux-plugins-in-configuration-nix/1991
+
+      # run-shell ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
+      # run-shell ${pkgs.tmuxPlugins.tmux-fzf}/share/tmux-plugins/tmux-fzf/tmux-fzf.tmux
+      # run-shell ${pkgs.tmuxPlugins.mode-indicator}/share/tmux-plugins/mode-indicator/mode-indicator.tmux
+
       # set -g @plugin 'tmux-plugins/tmux-battery'
-      set -g @plugin 'xamut/tmux-weather'
-      set -g @plugin 'sainnhe/tmux-fzf'
-      set -g @plugin 'MunifTanjim/tmux-mode-indicator'
+      # set -g @plugin 'xamut/tmux-weather'
+      # set -g @plugin 'sainnhe/tmux-fzf'
+      # set -g @plugin 'MunifTanjim/tmux-mode-indicator'
 
       ### Movement
       bind h select-pane -L
@@ -49,17 +67,10 @@
       ### Battery
       # set -g status-right '#{weather} | #{battery_status_bg} Batt: #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %I:%M %p'
       set -g status-left '#{tmux_mode_indicator}'
+      # set -g status-right "#{weather} | Battery: #(acpi | grep -o '[^ ]*%%') | %a %h-%d %I:%M %p"
       set -g status-right "Battery: #(acpi | grep -o '[^ ]*%%') | %a %h-%d %I:%M %p"
 
 
-      ### Load plugins for NixOS
-      # literally the most annoying thing
-      # see https://github.com/NixOS/nixpkgs/pull/36790 and https://discourse.nixos.org/t/configuring-tmux-plugins-in-configuration-nix/1991
-
-      run-shell ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
-      run-shell ${pkgs.tmuxPlugins.weather}/share/tmux-plugins/weather/weather.tmux
-      run-shell ${pkgs.tmuxPlugins.tmux-fzf}/share/tmux-plugins/tmux-fzf/tmux-fzf.tmux
-      run-shell ${pkgs.tmuxPlugins.mode-indicator}/share/tmux-plugins/mode-indicator/mode-indicator.tmux
     '';
     # extraTmuxConf = "run-shell ${pkgs.tmuxPlugins.sidebar}/share/tmux-plugins/sidebar/sidebar.tmux";
   };

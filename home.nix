@@ -75,6 +75,7 @@
       vscode.enable = true;
       waybar.enable = true;
       wofi.enable = true;
+      xfce.enable = true;
       zathura.enable = true;
     };
 

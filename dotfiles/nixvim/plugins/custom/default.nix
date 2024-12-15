@@ -3,6 +3,7 @@
     ./auto-session.nix
     ./dashboard.nix
     ./floaterm.nix
+    ./hop.nix
     ./lualine.nix
     ./neoscroll.nix
     ./noice.nix

@@ -35,7 +35,7 @@
             "<C-d>" = "cmp.mapping.scroll_docs(-4)";
             "<C-f>" = "cmp.mapping.scroll_docs(4)";
             "<A-Space>" = "cmp.mapping.complete()";
-            "<Esc>" = "cmp.mapping.close()";
+            "<C-e>" = "cmp.mapping.close()";
             "<Tab>" = "cmp.mapping.select_next_item()";
             "<S-Tab>" = "cmp.mapping.select_prev_item()";
             "<CR>" = "cmp.mapping.confirm({ select = true })";

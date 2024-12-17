@@ -10,7 +10,7 @@
         layer = "top";
         position = "top";
         height = 24;
-        modules-left = [ "sway/workspaces" "sway/mode" ];
+        modules-left = [ "sway/workspaces" "sway/scratchpad" "sway/mode" ];
         modules-center = [ "sway/window" ];
         modules-right = [ "pulseaudio" "network" "cpu" "memory" "battery" "tray" "clock" ];
 
@@ -37,13 +37,41 @@
           format = "<span style='italic'>{}</span>";
         };
 
+        "sway/scratchpad" = {
+          format = " {icon} {count}";
+          show-empty = false;
+          format-icons = ["" ""];
+          tooltip = true;
+          tooltip-format = "{app}: {title}";
+        };
+
         tray = {
           spacing = 10;
         };
 
         clock = {
-          format = "{:%I:%m %p}";
-          format-alt = "{:%Y-%m-%d}";
+          format = " {:%A %B %d   %I:%M %p}";
+          # format-alt = "{: %A %B %d  %I:%M %p}";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          actions = {
+            on-click-right = "mode";
+            on-scroll-up = "shift_up";
+            on-scroll-down = "shift_down";
+          };
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            on-click-right = "mode";
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              days = "<span color='#ecc6d9'><b>{}</b></span>";
+              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+            };
+          };
         };
 
         cpu = {
@@ -114,11 +142,11 @@
         padding: 0 3px;
         margin: 0 2px;
       }
-      
+
       #clock {
         font-weight: bold;
       }
-      
+
       #battery.warning:not(.charging) {
         animation-name: blink;
         animation-duration: 0.5s;

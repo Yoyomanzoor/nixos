@@ -55,7 +55,8 @@ sudo nix-collect-garbage --delete-older-than 15d
 
 ### TODO
 
-- [ ] A simpler way to change wallpapers
-- [ ] Arabic keyboard
-- [ ] Eventually move [configs](https://www.github.com/Yoyomanzoor/dotfiles.git) to home-manager
+- [ ] A better way to open files, like [fzf-open](https://github.com/trmckay/fzf-open)
+- [x] A simpler way to change wallpapers
+- [x] Arabic keyboard
+- [x] Eventually move [configs](https://www.github.com/Yoyomanzoor/dotfiles.git) to home-manager
 

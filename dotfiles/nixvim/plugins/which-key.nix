@@ -9,6 +9,10 @@
       settings = {
         spec = [
           {
+            __unkeyed-1 = "<leader>a";
+            group = "[A]utosession";
+          }
+          {
             __unkeyed-1 = "<leader>b";
             group = "[B]uffer";
           }
@@ -27,6 +31,10 @@
           {
             __unkeyed-1 = "<leader>g";
             group = "[G]it";
+          }
+          {
+            __unkeyed-1 = "<leader>n";
+            group = "[N]otifications";
           }
           {
             __unkeyed-1 = "<leader>r";

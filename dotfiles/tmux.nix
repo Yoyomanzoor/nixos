@@ -41,22 +41,34 @@
       bind j select-pane -D
       bind k select-pane -U
       bind l select-pane -R
-      bind -n M-Left select-pane -L
-      bind -n M-Right select-pane -R
-      bind -n M-Up select-pane -U
-      bind -n M-Down select-pane -D
+      bind -n C-M-h select-pane -L
+      bind -n C-M-l select-pane -R
+      bind -n C-M-k select-pane -U
+      bind -n C-M-j select-pane -D
+      # bind -n M-Left select-pane -L
+      # bind -n M-Right select-pane -R
+      # bind -n M-Up select-pane -U
+      # bind -n M-Down select-pane -D
+
+      bind C-M-J swap-pane -U
+      bind C-M-K swap-pane -D
+
+      # https://www.reddit.com/r/commandline/comments/8wv0w6/interactively_moving_panes_to_other_windows/
+      bind-key M choose-tree -Zw "join-pane -t '%%'"
+      bind-key C-m choose-tree -Zs "join-pane -t '%%'"
+
 
       ### Split
       unbind '"'
       unbind %
-      bind s split-window -h -c "#{pane_current_path}"
-      bind v split-window -v -c "#{pane_current_path}"
+      bind v split-window -h -c "#{pane_current_path}"
+      bind s split-window -v -c "#{pane_current_path}"
 
       ### Resize
-      bind -n C-M-h resize-pane -L 10
-      bind -n C-M-l resize-pane -R 10
-      bind -n C-M-j resize-pane -D 10
-      bind -n C-M-k resize-pane -U 10
+      bind -n M-H resize-pane -L 10
+      bind -n M-L resize-pane -R 10
+      bind -n M-J resize-pane -D 10
+      bind -n M-K resize-pane -U 10
 
       ### Mouse mode
       set -g mouse on

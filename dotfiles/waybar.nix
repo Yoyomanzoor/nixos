@@ -144,7 +144,6 @@
       }
 
       #clock {
-        font-weight: bold;
       }
 
       #battery.warning:not(.charging) {

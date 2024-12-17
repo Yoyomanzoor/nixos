@@ -126,7 +126,6 @@
     # qutebrowser.enable = true;
     swaylock.enable = true;
     # vscode.enable = true;
-    wofi.enable = true;
     direnv = {
       enable = true;
       # enableFishIntegration = true; # Not needed for Fish
@@ -152,6 +151,7 @@
     ./dotfiles/tmux.nix
     ./dotfiles/waybar.nix
     ./dotfiles/wlogout/wlogout.nix
+    ./dotfiles/wofi.nix
     ./dotfiles/vieb/vieb.nix
     ./dotfiles/zathura.nix
     # TODO: Ranger

@@ -12,7 +12,7 @@ in
   home.packages = with pkgs; [
     (writeShellScriptBin "gtklock-screen" (builtins.readFile ./gtklock-screen))
     (writeShellScriptBin "swayworkspace" (builtins.readFile ./swayworkspace))
-    (writeShellScriptBin "fuzzel-emoji" (builtins.readFile ./fuzzel-emoji))
+    (writeShellScriptBin "wofi-emoji" (builtins.readFile ./wofi-emoji))
   ];
 
   services.swayidle = {
@@ -205,7 +205,7 @@ in
         "${mod}+Shift+Return" = "exec --no-startup-id vieb";
         "${mod}+p" = "exec grim -g '$(slurp)' - | wl-copy";
         # Emojis
-        "${mod}+period" = "exec bash fuzzel-emoji";
+        "${mod}+period" = "exec wofi-emoji";
       };
       keycodebindings = {
         "172" = "exec playerctl play-pause";

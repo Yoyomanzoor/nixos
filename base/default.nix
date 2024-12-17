@@ -115,13 +115,11 @@
     python39
     nodejs_22
 
-    # neovim
-    # pkgsUnstable.neovim
-    markdown-oxide # required as a package for mason
+    # pkgsUnstable.neovim # Moved to home manager
+    # markdown-oxide # required as a package for mason
 
     # apps
     vimiv-qt
-
   ];
   
   # Define a user account. Don't forget to set a password with ‘passwd’.

@@ -9,6 +9,7 @@
     ./noice.nix
     ./notify.nix
     ./ranger.nix
+    ./surround.nix
     ./todo-comments.nix
     ./undotree.nix
   ];

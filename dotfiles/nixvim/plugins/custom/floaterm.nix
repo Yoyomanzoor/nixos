@@ -2,12 +2,14 @@
   programs.nixvim = {
     plugins.floaterm = {
       enable = true;
-      width = 0.9;
-      height = 0.9;
-
-      keymaps = {
-        toggle = "<leader>tt";
-        new = "<leader>tn";
+      settings = {
+        width = 0.9;
+        height = 0.9;
+        keymap_new = "<leader>te";
+        keymap_toggle = "<leader>tt";
+        keymap_next = "<leader>tn";
+        keymap_prev = "<leader>tp";
+        keymap_kill = "<leader>tk";
       };
     };
 

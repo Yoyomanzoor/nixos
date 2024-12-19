@@ -192,7 +192,8 @@
             require('telescope.builtin').find_files {
               -- find_command = 'rg',
               no_ignore = true,
-              hidden = true
+              hidden = true,
+              cwd = '~'
             }
           end
         '';

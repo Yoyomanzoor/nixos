@@ -21,6 +21,7 @@
         };
       };
 
+
       cmp = {
         enable = true;
 
@@ -53,6 +54,7 @@
             {name = "neorg";}
             {name = "path";}
             {name = "cmdline";}
+            {name = "spell";}
           ];
         };
 

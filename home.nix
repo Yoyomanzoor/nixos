@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  
+
   home.username = "yoyomanzoor";
   home.homeDirectory = "/home/yoyomanzoor";
 
@@ -39,7 +39,6 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
-
 
   programs.git = {
     enable = true;
@@ -88,7 +87,7 @@
     cursor.name = "Bibata-Modern-Ice";
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
         name = "JetBrainsMono Nerd Font Mono";
       };
       sansSerif = {
@@ -146,6 +145,7 @@
     # ./dotfiles/hyprland/hyprland.nix
     ./dotfiles/kitty.nix
     ./dotfiles/nixvim/nixvim.nix
+    # ./dotfiles/nixvim/neve.nix # alternative neovim config
     ./dotfiles/sway/sway.nix
     ./dotfiles/swaync/swaync.nix
     ./dotfiles/tmux.nix

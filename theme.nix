@@ -1,9 +1,9 @@
 { lib, ... }:
 with lib;
 let
-  defaultTheme = "classic-dark";
+  defaultTheme = "darcula";
 in
-  {
+{
   options.theme.theme = mkOption {
     type = types.str;
     default = defaultTheme;

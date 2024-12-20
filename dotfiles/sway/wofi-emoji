@@ -3,7 +3,6 @@ if [ $? -eq 0 ]
 then
     sed '1,/^### DATA ###$/d' $0 | wofi --show dmenu -i | cut -d ' ' -f 1 | tr -d '\n' | wl-copy
 
-
 else
     sed '1,/^### DATA ###$/d' $0 | wofi --show dmenu -i | cut -d ' ' -f 1 | tr -d '\n' | wl-copy
 fi
@@ -16,10 +15,104 @@ exit
 ↓ down arrow
 ←↑→↓ all directions up down left right arrows
 AH↗️HA↘️HA↗️HA↘️HA↗️HA↘️HA↗️HA↘️ pekora arrows hahaha rabbit
-• dot circle separator
+• dot circle separator math
++ plus math
+− minus math
+× multiplication multiply math
+± plus-minus math
+∓ minus-plus math
+÷ division divide math
+∞ infinity sign math
+∝ proportional sign math
+√ square root math
+√ radical symbol root math
+^ caret exponential math
+= equal sign math
+≠ not equal sign math
+≈ approximate equal math
+≡ triple bar identity equal math
+< less than sign math
+> greater than sign math
+≤ less than or equal to math
+≥ greater than or equal to math
+∅ empty set null math
+∈ set is in member of math
+∉ set is not in math
+⊂ set inclusion subset math
+⊆ set subset math
+⊊ set proper subset math
+⊃ set inclusion subset math
+⊇ set subset math
+⊋ set proper subset math
+∪ set union math
+∩ set intersection math
+⊖ set symmetric difference math
+¬ logic not sign math
+∨ logic descending wedge math
+∧ logic wedge math
+⊻ logic exclusive or math
+∀ logic turned A math
+∃ logic set exists math
+⇒ logic set implies conditional math
+⇔ logic set equal equivalence if and only if math
+⊤ logic tee math
+⊥ logic up tack math
+∫ antiderivative integral math
+∑ sum series math
+∏ product series math
+⊙ product of power series target math
 「」 japanese quote square bracket
 ↵ enter key return
 𝕏  twitter x logo
+α alpha Greek
+Α alpha capital Greek
+β beta Greek
+Β beta capital Greek
+γ gamma Greek
+Γ gamma capital Greek
+δ delta Greek
+Δ delta capital Greek
+ε epsilon Greek
+Ε epsilon capital Greek
+ζ zeta Greek
+Ζ zeta capital Greek
+η eta Greek
+Η eta capital Greek
+θ theta Greek
+Θ theta capital Greek
+ι iota Greek
+Ι iota capital Greek
+κ kappa Greek
+Κ kappa capital Greek
+λ lambda Greek
+Λ lambda capital Greek
+μ mu Greek
+Μ mu capital Greek
+ν nu Greek
+Ν nu capital Greek
+ξ xi Greek
+Ξ xi capital Greek
+ο omicron Greek
+Ο omicron capital Greek
+π pi Greek
+Π pi capital Greek
+ρ rho Greek
+Ρ rho capital Greek
+σ sigma Greek
+ς sigma Greek
+Σ sigma capital Greek
+τ tau Greek
+Τ tau capital Greek
+υ upsilon Greek
+Υ upsilon capital Greek
+φ phi Greek
+Φ phi capital Greek
+χ chi Greek
+Χ chi capital Greek
+ψ psi Greek
+Ψ psi capital Greek
+ω omega Greek
+Ω omega capital Greek
 👉👈 etou ughhhhhhh shy
 👉👌 put it in imagination perv
 😀 grinning face face smile happy joy :D grin
@@ -1871,4 +1964,3 @@ AH↗️HA↘️HA↗️HA↘️HA↗️HA↘️HA↗️HA↘️ pekora arrows h
 🫧 bubbles soap fun carbonation sparkling
 🪪 identification card document
 🟰 heavy equals sign math
-

@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   mod = config.wayland.windowManager.sway.config.modifier;
@@ -18,8 +23,15 @@ in
   services.swayidle = {
     enable = true;
     timeouts = [
-      { timeout = 1800; command = "gtklock-screen"; }
-      { timeout = 3600; command = "swaymsg 'output * dpms off'"; resumeCommand = "swaymsg 'output * dpms on'"; }
+      {
+        timeout = 1800;
+        command = "gtklock-screen";
+      }
+      {
+        timeout = 3600;
+        command = "swaymsg 'output * dpms off'";
+        resumeCommand = "swaymsg 'output * dpms on'";
+      }
     ];
     extraArgs = [
       "before-sleep 'playerctl pause'"
@@ -99,7 +111,8 @@ in
           l = "resize grow width 10 px";
         };
       };
-      keybindings = lib.mkOptionDefault { # https://github.com/nix-community/home-manager/issues/5804
+      keybindings = lib.mkOptionDefault {
+        # https://github.com/nix-community/home-manager/issues/5804
         # Focus
         "${mod}+h" = "focus left";
         "${mod}+j" = "focus down";
@@ -203,7 +216,7 @@ in
         "${mod}+c" = "exec kitty -e nvim";
         "${mod}+e" = "exec kitty -e ranger";
         "${mod}+Shift+Return" = "exec --no-startup-id vieb";
-        "${mod}+p" = "exec grim -g '$(slurp)' - | wl-copy";
+        "${mod}+Ctrl+s" = "exec grim -g '$(slurp -d)' - | wl-copy -t image/png";
         # Emojis
         "${mod}+period" = "exec wofi-emoji";
       };

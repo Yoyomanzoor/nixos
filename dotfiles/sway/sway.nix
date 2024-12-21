@@ -7,7 +7,7 @@
 
 let
   mod = config.wayland.windowManager.sway.config.modifier;
-
+  gtklock-screen = pkgs.writeShellScriptBin "gtklock-screen" (builtins.readFile ./gtklock-screen);
 in
 {
   # xdg.configFile = {
@@ -15,7 +15,8 @@ in
   # };
 
   home.packages = with pkgs; [
-    (writeShellScriptBin "gtklock-screen" (builtins.readFile ./gtklock-screen))
+    gtklock-screen
+    # (writeShellScriptBin "gtklock-screen" (builtins.readFile ./gtklock-screen))
     (writeShellScriptBin "swayworkspace" (builtins.readFile ./swayworkspace))
     (writeShellScriptBin "wofi-emoji" (builtins.readFile ./wofi-emoji))
   ];
@@ -24,18 +25,22 @@ in
     enable = true;
     timeouts = [
       {
+        timeout = 1740;
+        command = "${pkgs.libnotify}/bin/notify-send 'lock in 1 minute'";
+      }
+      {
         timeout = 1800;
-        command = "gtklock-screen";
+        command = "${gtklock-screen}";
       }
       {
         timeout = 3600;
-        command = "swaymsg 'output * dpms off'";
-        resumeCommand = "swaymsg 'output * dpms on'";
+        command = "${pkgs.sway}/bin/swaymsg 'output * dpms off'";
+        resumeCommand = "${pkgs.sway}/bin/swaymsg 'output * dpms on'";
       }
     ];
     extraArgs = [
       "before-sleep 'playerctl pause'"
-      "before-sleep 'gtklock-screen'"
+      "before-sleep '${gtklock-screen}'"
     ];
   };
 

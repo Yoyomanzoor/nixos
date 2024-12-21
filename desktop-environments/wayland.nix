@@ -1,6 +1,6 @@
 # Shared wayland things
 
-{ config, pkgs, pkgsUnstable, lib, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -17,14 +17,5 @@
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
     configPackages = [ pkgs.gnome-session ];
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    banner = "smanzoor@umich.edu";
   };
 }

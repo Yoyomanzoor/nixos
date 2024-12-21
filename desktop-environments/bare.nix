@@ -1,6 +1,6 @@
 # bare tty setup
 
-{ config, pkgs, pkgsUnstable, lib, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [

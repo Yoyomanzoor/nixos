@@ -1,7 +1,7 @@
 { lib, ... }:
 with lib;
 let
-  defaultTheme = "darcula";
+  defaultTheme = "dracula";
 in
 {
   options.theme.theme = mkOption {

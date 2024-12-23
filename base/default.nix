@@ -1,6 +1,9 @@
-# Base packages
-
-{ config, pkgs, pkgsUnstable, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -13,7 +16,10 @@
     inherit (config.nixpkgs) config;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;
@@ -89,6 +95,9 @@
     # general environment
     nerdfonts
     blueman
+    kitty
+    ranger
+    ueberzugpp
 
     # command line tools
     acpi
@@ -106,6 +115,7 @@
     nix-search
     trashy
     killall
+    lazygit
 
     # languages
     lua
@@ -121,32 +131,42 @@
     # apps
     vimiv-qt
   ];
-  
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.yoyomanzoor = {
     isNormalUser = true;
     description = "Yoyomanzoor";
-    extraGroups = [ "networkmanager" "wheel" "video" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "input"
+    ];
     # openssh.authorizedKeys.keyFiles = [
     #   ~/.ssh
     # ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      kitty
-      ranger
-      floorp
-      vieb
-      lazygit
+      # tools
+      yt-dlp
+      slides
       zathura
-      vesktop
-      obsidian
       mpv
       vlc
-      yt-dlp
+
+      # web
+      floorp
+      vieb
       w3m
-      slides
-      ueberzugpp
+
+      # studying
       anki-bin
+      obsidian
+
+      # communication
+      vesktop
+      telegram-desktop
+      whatsie
     ];
   };
 
@@ -177,10 +197,12 @@
       enable = true;
     };
   };
-  
+
   #Home manager setup
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {
+      inherit inputs;
+    };
     users = {
       "yoyomanzoor" = import ../home.nix;
     };
@@ -191,40 +213,40 @@
     enable = true;
     autoEnable = true;
     targets = {
-  #     fish.enable = true;
+      #     fish.enable = true;
       gnome.enable = true;
       plymouth.enable = true;
     };
 
     image = ../wallpaper.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.theme.theme}.yaml";
-  #   polarity = "dark"; # light or dark or either
-  #   cursor.package = lib.mkForce pkgs.bibata-cursors;
-  #   cursor.name = "Bibata-Modern-Ice";
-  #   fonts = {
-  #     monospace = {
-  #       package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-  #       name = "JetBrainsMono Nerd Font Mono";
-  #     };
-  #     sansSerif = {
-  #       package = pkgs.dejavu_fonts;
-  #       name = "DejaVu Sans";
-  #     };
-  #     serif = {
-  #       package = pkgs.dejavu_fonts;
-  #       name = "DejaVu Serif";
-  #     };
-  #     emoji = {
-  #       package = pkgs.noto-fonts-color-emoji;
-  #       name = "Noto Color Emoji";
-  #     };
-  #   };
-  #   opacity = {
-  #     applications = 0.9;
-  #     terminal = 0.9;
-  #     desktop = 1.0;
-  #     popups = 0.9;
-  #   };
+    #   polarity = "dark"; # light or dark or either
+    #   cursor.package = lib.mkForce pkgs.bibata-cursors;
+    #   cursor.name = "Bibata-Modern-Ice";
+    #   fonts = {
+    #     monospace = {
+    #       package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+    #       name = "JetBrainsMono Nerd Font Mono";
+    #     };
+    #     sansSerif = {
+    #       package = pkgs.dejavu_fonts;
+    #       name = "DejaVu Sans";
+    #     };
+    #     serif = {
+    #       package = pkgs.dejavu_fonts;
+    #       name = "DejaVu Serif";
+    #     };
+    #     emoji = {
+    #       package = pkgs.noto-fonts-color-emoji;
+    #       name = "Noto Color Emoji";
+    #     };
+    #   };
+    #   opacity = {
+    #     applications = 0.9;
+    #     terminal = 0.9;
+    #     desktop = 1.0;
+    #     popups = 0.9;
+    #   };
   };
   # disabledModules = [ "${inputs.stylix}/modules/regreet/nixos.nix" ]; # See https://github.com/danth/stylix/issues/577
 
@@ -262,7 +284,7 @@
   # };
 
   ### List services that you want to enable:
-  
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 

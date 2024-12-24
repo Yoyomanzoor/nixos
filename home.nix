@@ -153,6 +153,7 @@
     ./dotfiles/wlogout/wlogout.nix
     ./dotfiles/wofi.nix
     ./dotfiles/vieb/vieb.nix
+    ./dotfiles/vimiv/vimiv.nix
     ./dotfiles/zathura.nix
     # TODO: Ranger
   ];

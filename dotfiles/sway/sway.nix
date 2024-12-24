@@ -204,6 +204,7 @@ in
         # Syskeys
         "XF86AudioRaiseVolume" = "exec volumectl up 5";
         "XF86AudioLowerVolume" = "exec volumectl down 5";
+        "XF86AudioMute" = "exec volumectl toggle-mute";
         "XF86AudioPause" = "exec playerctl pause";
         "XF86AudioPlay" = "exec playerctl play";
         "XF86MonBrightnessUp" = "exec brightnessctl s +5%";

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, ... }:
 
 {
   programs.waybar = {
@@ -10,22 +10,34 @@
         layer = "top";
         position = "top";
         height = 24;
-        modules-left = [ "sway/workspaces" "sway/scratchpad" "sway/mode" ];
+        modules-left = [
+          "sway/workspaces"
+          "sway/scratchpad"
+          "sway/mode"
+        ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "pulseaudio" "network" "cpu" "memory" "battery" "tray" "clock" ];
+        modules-right = [
+          "pulseaudio"
+          "network"
+          "cpu"
+          "memory"
+          "battery"
+          "tray"
+          "clock"
+        ];
 
         "sway/workspaces" = {
           disable-scroll = false;
           all-outputs = true;
           persistent-workspaces = {
-            "1" = [];
-            "2" = [];
-            "3" = [];
-            "4" = [];
-            "5" = [];
-            "6" = [];
-            "7" = [];
-            "8" = [];
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
+            "4" = [ ];
+            "5" = [ ];
+            "6" = [ ];
+            "7" = [ ];
+            "8" = [ ];
           };
           format = "{icon}";
           format-icons = {
@@ -40,7 +52,10 @@
         "sway/scratchpad" = {
           format = " {icon} {count}";
           show-empty = false;
-          format-icons = ["" ""];
+          format-icons = [
+            ""
+            ""
+          ];
           tooltip = true;
           tooltip-format = "{app}: {title}";
         };
@@ -90,7 +105,13 @@
             critical = 15;
           };
           format = "{capacity}% {icon}";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
 
         network = {
@@ -110,7 +131,10 @@
             phone = "";
             portable = "";
             car = "";
-            default = [ "" "" ];
+            default = [
+              ""
+              ""
+            ];
           };
           on-click = "pavucontrol";
         };
@@ -126,16 +150,32 @@
         min-height: 0;
       }
 
+      window#waybar {
+        background: #${config.lib.stylix.colors.base00};
+      }
+
       #window {
         font-weight: bold;
         font-family: "FiraMono";
       }
 
-
       #workspaces button {
         padding: 0 5px;
         background: transparent;
+        color: #${config.lib.stylix.colors.base08};
         border-top: 2px solid transparent;
+      }
+
+      #workspaces button.focused {
+        color: #${config.lib.stylix.colors.base08};
+      }
+
+      #workspaces button.empty {
+        color: #${config.lib.stylix.colors.base05};
+      }
+
+      #mode {
+        background: #${config.lib.stylix.colors.base00};
       }
 
       #clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
@@ -144,14 +184,29 @@
       }
 
       #clock {
+        font-weight: bold;
       }
 
+      #battery icon {
+        color: #${config.lib.stylix.colors.base05};
+      }
+
+      #battery.charging {
+        color: green;
+      }
+
+
       #battery.warning:not(.charging) {
+        color: red;
         animation-name: blink;
         animation-duration: 0.5s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
         animation-direction: alternate;
+      }
+
+      network.disconnected {
+        background: #${config.lib.stylix.colors.base08};
       }
     '';
   };

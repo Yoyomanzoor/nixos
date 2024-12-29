@@ -116,6 +116,7 @@
     trashy
     killall
     lazygit
+    any-nix-shell
 
     # languages
     lua
@@ -253,7 +254,7 @@
   #----=[ Fonts ]=----#
   # fonts = {
   #   enableDefaultPackages = true;
-  #   packages = with pkgs; [ 
+  #   packages = with pkgs; [
   #     (nerdfonts.override {fonts = [ "FiraCode" ]; })
   #     noto-fonts
   #     noto-fonts-emoji

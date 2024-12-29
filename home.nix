@@ -140,6 +140,7 @@
 
   imports = [
     ./theme.nix
+    # ./dotfiles/ankitheme.nix
     ./dotfiles/fish.nix
     ./dotfiles/fzf.nix
     # ./dotfiles/hyprland/hyprland.nix

@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   programs.nixvim = {
     extraConfigLuaPre = ''
       local slow_format_filetypes = {}
@@ -75,6 +76,9 @@
           prettierd = {
             command = lib.getExe pkgs.prettierd;
           };
+          marksman = {
+            command = lib.getExe pkgs.marksman;
+          };
           jq = {
             command = lib.getExe pkgs.jq;
           };
@@ -84,6 +88,9 @@
           cbfmt = {
             command = lib.getExe pkgs.cbfmt;
           };
+          # vale-ls = {
+          #   command = lib.getExe pkgs.vale-ls;
+          # };
           superhtml = {
             command = lib.getExe pkgs.superhtml;
           };
@@ -95,22 +102,57 @@
           };
         };
         formatters_by_ft = {
-          bash = [ "shellcheck" "shellharden" "shfmt" ]; # Conform runs formatters sequentially
+          bash = [
+            "shellcheck"
+            "shellharden"
+            "shfmt"
+          ]; # Conform runs formatters sequentially
           cpp = [ "clang_format" ];
           go = [ "gofumpt" ];
-          html = [ [ "prettierd" "prettier" ] "superhtml" ];
-          javascript = [ [ "prettierd" "prettier" ] ]; # Sublist runs until a formatter is found
+          html = [
+            [
+              "prettierd"
+              "prettier"
+            ]
+            "superhtml"
+          ];
+          javascript = [
+            [
+              "prettierd"
+              "prettier"
+            ]
+          ]; # Sublist runs until a formatter is found
           json = [ "jq" ];
           # latex = [ "latexindnet" ];
-          lua = ["stylua"];
-          markdown = [ [ "prettierd" "prettier" ] "cbfmt" ];
+          lua = [ "stylua" ];
+          markdown = [
+            "marksman"
+            "prettierd"
+            # "vale-ls"
+            "cbfmt"
+          ];
           nix = [ "nixfmt-rfc-style" ];
-          python = [ "isort" "black" ];
+          python = [
+            "isort"
+            "black"
+          ];
           ruby = [ "rubyfmt" ];
           rust = [ "rustfmt" ];
-          typescript = [ [ "prettierd" "prettier" ] ];
-          yaml = [ "prettierd" "prettier" ];
-          "_" = [ "squeeze_blanks" "trim_whitespace" "trim_newlines" ];
+          typescript = [
+            [
+              "prettierd"
+              "prettier"
+            ]
+          ];
+          yaml = [
+            "prettierd"
+            "prettier"
+          ];
+          "_" = [
+            "squeeze_blanks"
+            "trim_whitespace"
+            "trim_newlines"
+          ];
         };
         format_on_save = ''
           function(bufnr)
@@ -156,7 +198,7 @@
           function()
             require('conform').format { async = true, lsp_fallback = true }
           end
-          '';
+        '';
         options = {
           desc = "[F]ormat buffer [C]onform";
         };

@@ -83,6 +83,7 @@
         # julials.enable = true;
 
         # markdown
+        marksman.enable = true;
         markdown_oxide.enable = true;
 
         # javascript/typescript

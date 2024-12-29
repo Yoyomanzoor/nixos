@@ -7,11 +7,11 @@
 
       # NOTE: Enabling these will cause errors unless these tools are installed
       lintersByFt = {
-        nix = ["nix"];
-        markdown = [
-          "markdownlint"
-          #vale
-        ];
+        nix = [ "nix" ];
+        # markdown = [
+        #   # "markdownlint"
+        #   "vale-ls"
+        # ];
         #clojure = ["clj-kondo"];
         #dockerfile = ["hadolint"];
         #inko = ["inko"];

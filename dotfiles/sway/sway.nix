@@ -87,6 +87,8 @@ in
         "type:touchpad" = {
           tap = "enabled";
           natural_scroll = "enabled";
+          accel_profile = "adaptive";
+          pointer_accel = "0.5";
         };
       };
       output = {

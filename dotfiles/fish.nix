@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
@@ -23,6 +28,7 @@
     };
     interactiveShellInit = ''
       starship init fish | source
+      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
     '';
     shellAliases = {
       cd = "z";
@@ -66,4 +72,3 @@
     preferAbbrs = true;
   };
 }
-

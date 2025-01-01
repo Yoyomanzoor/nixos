@@ -1,12 +1,11 @@
 {
-  config,
   pkgs,
-  lib,
   ...
 }:
 
 {
   home.packages = with pkgs; [
+    nvd
     fishPlugins.fzf-fish
     fishPlugins.autopair
   ];
@@ -25,6 +24,12 @@
     enable = true;
     functions = {
       fish_greeting.body = "fastfetch";
+      nix-switch.body = ''
+        sudo nixos-rebuild switch --flake ~/.config/nixos#lenovo-nanoX1-wayland && nvd diff (find /nix/var/nix/profiles/ -name "system-*-link" | sort | head -2)
+      '';
+      nix-boot.body = ''
+        sudo nixos-rebuild boot --flake ~/.config/nixos#lenovo-nanoX1-wayland && nvd diff (find /nix/var/nix/profiles/ -name "system-*-link" | sort | head -2)
+      '';
     };
     interactiveShellInit = ''
       starship init fish | source

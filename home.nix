@@ -143,6 +143,7 @@
     # ./dotfiles/ankitheme.nix
     ./dotfiles/fish.nix
     ./dotfiles/fzf.nix
+    ./dotfiles/helix.nix
     # ./dotfiles/hyprland/hyprland.nix
     ./dotfiles/kitty.nix
     ./dotfiles/nixvim/nixvim.nix

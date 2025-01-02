@@ -25,10 +25,10 @@
     functions = {
       fish_greeting.body = "fastfetch";
       nix-switch.body = ''
-        sudo nixos-rebuild switch --flake ~/.config/nixos#lenovo-nanoX1-wayland && nvd diff (find /nix/var/nix/profiles/ -name "system-*-link" | sort | head -2)
+        sudo nixos-rebuild switch --flake ~/.config/nixos#lenovo-nanoX1-wayland && nvd diff (find /nix/var/nix/profiles/ -name "system-*-link" | sort -rn -t "-" -k 2 | head -2)
       '';
       nix-boot.body = ''
-        sudo nixos-rebuild boot --flake ~/.config/nixos#lenovo-nanoX1-wayland && nvd diff (find /nix/var/nix/profiles/ -name "system-*-link" | sort | head -2)
+        sudo nixos-rebuild boot --flake ~/.config/nixos#lenovo-nanoX1-wayland && nvd diff (find /nix/var/nix/profiles/ -name "system-*-link" | sort -rn -t "-" -k 2 | head -2)
       '';
     };
     interactiveShellInit = ''

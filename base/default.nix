@@ -156,12 +156,15 @@
       slides
       zathura
       mpv
+      vimpc
       vlc
+      vimpager
 
       # web
       floorp
       vieb
       w3m
+      vimb
 
       # studying
       anki-bin

@@ -152,6 +152,7 @@
     ./dotfiles/swaync/swaync.nix
     ./dotfiles/tmux.nix
     ./dotfiles/waybar.nix
+    # ./dotfiles/wezterm.nix # konsole is better for arabic in vim
     ./dotfiles/wlogout/wlogout.nix
     ./dotfiles/wofi.nix
     ./dotfiles/vieb/vieb.nix

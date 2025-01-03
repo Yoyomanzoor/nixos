@@ -126,6 +126,9 @@
     python39
     nodejs_22
 
+    # extra terminal for Arabic/bidi
+    kdePackages.konsole
+
     # pkgsUnstable.neovim # Moved to home manager
     # markdown-oxide # required as a package for mason
 

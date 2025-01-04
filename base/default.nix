@@ -160,6 +160,19 @@
       vlc
       vimpager
 
+      # Ranger tools
+      atool
+      libarchive
+      p7zip
+      unrar
+      poppler_utils # for pdf rendering
+      exiftool
+      transmission_4
+      odt2txt
+      pandoc
+      xlsx2csv
+      mediainfo
+
       # web
       floorp
       vieb

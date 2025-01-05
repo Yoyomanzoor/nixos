@@ -86,6 +86,11 @@
         marksman.enable = true;
         markdown_oxide.enable = true;
 
+        # LaTeX
+        ltex.enable = true;
+        # ltex_plus.enable = true;
+        texlab.enable = true;
+
         # javascript/typescript
         eslint.enable = true;
         ts_ls.enable = true;

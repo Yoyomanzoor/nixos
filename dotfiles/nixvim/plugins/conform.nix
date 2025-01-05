@@ -79,6 +79,12 @@
           marksman = {
             command = lib.getExe pkgs.marksman;
           };
+          texlab = {
+            command = lib.getExe pkgs.texlab;
+          };
+          ltex-ls = {
+            command = lib.getExe pkgs.ltex-ls;
+          };
           jq = {
             command = lib.getExe pkgs.jq;
           };
@@ -130,6 +136,14 @@
             "prettierd"
             # "vale-ls"
             "cbfmt"
+          ];
+          latex = [
+            "ltex-ls"
+            "texlab"
+          ];
+          tex = [
+            "ltex-ls"
+            "texlab"
           ];
           nix = [ "nixfmt-rfc-style" ];
           python = [

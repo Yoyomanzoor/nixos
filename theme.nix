@@ -1,7 +1,7 @@
 { lib, ... }:
 with lib;
 let
-  defaultTheme = "blueish";
+  defaultTheme = "ia-dark";
 in
 {
   options.theme.theme = mkOption {

@@ -35,7 +35,7 @@
       clipboard = {
         providers = {
           wl-copy.enable = true; # for wayland
-          xsel.enable = true; # for X11
+          xsel.enable = false; # for X11
         };
         register = "unnamedplus";
       };
@@ -241,6 +241,48 @@
         options = {
           desc = "Toggle [Sp]ell check";
         };
+      }
+
+      {
+        mode = [
+          "n"
+          "v"
+        ];
+        key = "<leader>y";
+        action.__raw = ''
+          '"+y'
+        '';
+        options.desc = "Copy to clipboard";
+      }
+      {
+        mode = "n";
+        key = "<leader>Y";
+        action.__raw = ''
+          '"+yg_'
+        '';
+        options.desc = "Copy to clipboard";
+      }
+      {
+        mode = [
+          "n"
+          "v"
+        ];
+        key = "<leader>p";
+        action.__raw = ''
+          '"+p'
+        '';
+        options.desc = "Paste from clipboard";
+      }
+      {
+        mode = [
+          "n"
+          "v"
+        ];
+        key = "<leader>P";
+        action.__raw = ''
+          '"+P'
+        '';
+        options.desc = "Paste from clipboard";
       }
     ];
 

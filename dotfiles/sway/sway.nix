@@ -219,12 +219,13 @@ in
         # Power down
         "${mod}+Shift+p" = "exec killall wlogout || wlogout";
         # Applications
-        "${mod}+space" = "exec --no-startup-id killall wofi || wofi --show drun -I";
+        "${mod}+space" = "exec killall wofi || wofi --show drun -I";
         "${mod}+Return" = "exec kitty -e tmux";
         "${mod}+c" = "exec kitty -e nvim";
         "${mod}+e" = "exec kitty -e ranger";
         "${mod}+Shift+Return" = "exec --no-startup-id vieb";
         "${mod}+Ctrl+s" = "exec grim -g '$(slurp -d)' - | wl-copy -t image/png";
+        "${mod}+p" = "exec --no-startup-id nwg-displays";
         # Emojis
         "${mod}+period" = "exec wofi-emoji";
       };
@@ -249,6 +250,10 @@ in
       workspace 6 output HDMI-A-1
       workspace 7 output HDMI-A-1
       workspace 8 output HDMI-A-1
+      workspace 5 output DP-4
+      workspace 6 output DP-4
+      workspace 7 output DP-4
+      workspace 8 output DP-4
       workspace 5 output DP-3
       workspace 6 output DP-3
       workspace 7 output DP-3

@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   programs.zathura = {
     enable = true;
@@ -15,7 +13,7 @@
       statusbar-v-padding = 0;
       page-padding = 10;
       scroll-step = 40;
-      selection-keyboard = "clipboard";
+      selection-clipboard = "clipboard";
       recolor-keephue = true;
     };
   };

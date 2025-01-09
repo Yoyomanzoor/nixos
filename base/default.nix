@@ -8,6 +8,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.default
+    ./virt-manager.nix
   ];
 
   # this allows you to access `pkgsUnstable` anywhere in your config
@@ -145,6 +146,8 @@
       "wheel"
       "video"
       "input"
+      "libvirtd"
+      "kvm"
     ];
     # openssh.authorizedKeys.keyFiles = [
     #   ~/.ssh

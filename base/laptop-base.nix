@@ -44,7 +44,7 @@
            a s d f j k l ;
           )
           (defvar
-           tap-time 250
+           tap-time 150
            hold-time 200
           )
           (defalias

@@ -132,7 +132,7 @@
           # latex = [ "latexindnet" ];
           lua = [ "stylua" ];
           markdown = [
-            "marksman"
+            # "marksman"
             "prettierd"
             # "vale-ls"
             "cbfmt"

@@ -27,10 +27,24 @@
       #   options.remap = true;
       # }
       {
-        key = "<leader>fw";
+        key = "<leader>jj";
         action = "<cmd>HopWord<CR>";
         options = {
-          desc = "[F]ind [W]ord";
+          desc = "[J]ump to word";
+        };
+      }
+      {
+        key = "<leader>jl";
+        action = "<cmd>HopLineStart<CR>";
+        options = {
+          desc = "[J]ump to [L]ine";
+        };
+      }
+      {
+        key = "<leader>jn";
+        action = "<cmd>HopNodes<CR>";
+        options = {
+          desc = "[J]ump to [L]ine";
         };
       }
     ];

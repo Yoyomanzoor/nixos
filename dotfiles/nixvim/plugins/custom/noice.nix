@@ -3,6 +3,9 @@
     plugins.noice = {
       enable = true;
       # lazyLoad.enable = true;
+      settings = {
+        presets.bottom_search = true;
+      };
     };
     keymaps = [
       {

@@ -87,7 +87,7 @@
         markdown_oxide.enable = true;
 
         # LaTeX
-        ltex.enable = true;
+        # ltex.enable = true;
         # ltex_plus.enable = true;
         texlab.enable = true;
 

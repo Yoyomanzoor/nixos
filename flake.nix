@@ -72,6 +72,25 @@
             }
           ];
         };
+        "lenovo-nanoX1-x11" = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs system;
+          };
+          modules = [
+            ./hosts/lenovo-nanoX1/configuration.nix # hardware specific stuff
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-nano-gen1 # optimizations
+            ./base/laptop-base.nix # laptop tools
+            ./desktop-environments/deepin.nix
+            ./code/default.nix # basic coding tools
+            ./theme.nix # theme
+            inputs.stylix.nixosModules.stylix # theming
+            inputs.home-manager.nixosModules.home-manager # home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
+          ];
+        };
         "lenovo-nanoX1" = nixpkgs.lib.nixosSystem {
           # TTY only
           specialArgs = {

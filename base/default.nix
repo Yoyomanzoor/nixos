@@ -221,6 +221,9 @@
     };
   };
 
+  # controller support
+  hardware.xone.enable = true;
+
   #Home manager setup
   home-manager = {
     extraSpecialArgs = {

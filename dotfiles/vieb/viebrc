@@ -45,6 +45,14 @@ vmap > <p.scrollRight>
 pmap > <p.scrollRight>
 vmap <lt> <p.scrollLeft>
 pmap <lt> <p.scrollLeft>
+vmap <A-j> <p.moveFastDown>
+pmap <A-j> <p.moveFastDown>
+vmap <A-k> <p.moveFastUp>
+pmap <A-k> <p.moveFastUp>
+vmap <A-l> <p.moveFastRight>
+pmap <A-l> <p.moveFastRight>
+vmap <A-h> <p.moveFastLeft>
+pmap <A-h> <p.moveFastLeft>
 vmap <Down> <p.moveFastDown>
 pmap <Down> <p.moveFastDown>
 vmap <Up> <p.moveFastUp>
@@ -78,6 +86,4 @@ pmap <C-S-Right> <p.scrollRight>
 vmap <C-S-Left> <p.scrollLeft>
 pmap <C-S-Left> <p.scrollLeft>
 
-
 colorscheme theme
-

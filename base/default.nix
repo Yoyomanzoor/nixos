@@ -1,10 +1,18 @@
 {
   config,
   pkgs,
+  pkgsUnstable,
   inputs,
   ...
 }:
 
+let
+  unstable = import <nixos-unstable> {
+    config = {
+      allowUnfree = true;
+    };
+  };
+in
 {
   imports = [
     inputs.home-manager.nixosModules.default
@@ -183,7 +191,7 @@
       vimb
 
       # studying
-      anki-bin
+      pkgsUnstable.anki-bin
       obsidian
 
       # communication

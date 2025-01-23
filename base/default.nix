@@ -1,18 +1,10 @@
 {
   config,
   pkgs,
-  pkgsUnstable,
   inputs,
   ...
 }:
 
-let
-  unstable = import <nixos-unstable> {
-    config = {
-      allowUnfree = true;
-    };
-  };
-in
 {
   imports = [
     inputs.home-manager.nixosModules.default
@@ -20,10 +12,10 @@ in
   ];
 
   # this allows you to access `pkgsUnstable` anywhere in your config
-  _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
-    inherit (pkgs.stdenv.hostPlatform) system;
-    inherit (config.nixpkgs) config;
-  };
+  # _module.args.pkgsUnstable = import inputs.nixpkgs-unstable {
+  #   inherit (pkgs.stdenv.hostPlatform) system;
+  #   inherit (config.nixpkgs) config;
+  # };
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -102,7 +94,6 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # general environment
-    nerdfonts
     blueman
     kitty
     ranger
@@ -162,7 +153,7 @@ in
     # ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      # tools
+      # cli tools
       yt-dlp
       slides
       zathura
@@ -170,6 +161,7 @@ in
       vimpc
       vlc
       vimpager
+      htop-vim
 
       # Ranger tools
       atool
@@ -191,7 +183,7 @@ in
       vimb
 
       # studying
-      pkgsUnstable.anki-bin
+      anki-bin
       obsidian
 
       # communication
@@ -285,6 +277,11 @@ in
   # disabledModules = [ "${inputs.stylix}/modules/regreet/nixos.nix" ]; # See https://github.com/danth/stylix/issues/577
 
   #----=[ Fonts ]=----#
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    jetbrains-mono
+  ];
   # fonts = {
   #   enableDefaultPackages = true;
   #   packages = with pkgs; [
@@ -337,6 +334,6 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }

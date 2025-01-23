@@ -1,6 +1,9 @@
 # Sway setup
 
-{ config, pkgs, pkgsUnstable, lib, inputs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -22,7 +25,7 @@
       swaynotificationcenter
       wofi
       nwg-displays
-      pkgsUnstable.gtklock
+      gtklock
       swww
       avizo
       xdotool
@@ -37,6 +40,6 @@
   };
 
   # programs.waybar.enable = true;
-  security.pam.services.gtklock = {}; # See https://github.com/jovanlanik/gtklock/issues/50
+  security.pam.services.gtklock = { }; # See https://github.com/jovanlanik/gtklock/issues/50
   security.polkit.enable = true; # https://nixos.wiki/wiki/Sway
 }

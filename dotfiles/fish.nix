@@ -57,12 +57,8 @@
       untar = "tar -zxvf ";
       vdir = "vdir --color=auto";
       wget = "wget -c ";
-      vim = "nvim";
-      v = "nvim";
-      n = "nvim";
       conda = "micromamba";
       r = "R_AUTO_START=true nvim";
-      mpvm = "mpv --no-video ";
       jctl = "journalctl -p 3 -xb";
       rip = "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl";
     };
@@ -73,6 +69,10 @@
       ".4" = "z ../../../..";
       ".5" = "z ../../../../..";
       mkdir = "mkdir -p";
+      vim = "nvim";
+      v = "nvim";
+      n = "nvim";
+      mpvm = "mpv --no-video ";
     };
     preferAbbrs = true;
   };

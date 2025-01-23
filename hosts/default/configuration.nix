@@ -2,15 +2,22 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgsUnstable, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  pkgsUnstable,
+  lib,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./main-user.nix
-      # inputs.home-manager.nixosModules.default
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./main-user.nix
+    # inputs.home-manager.nixosModules.default
+  ];
 
   main-user.enable = true;
   main-user.userName = "yoyomanzoor";
@@ -23,7 +30,10 @@
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -64,7 +74,7 @@
     wrapperFeatures.gtk = true;
     xwayland.enable = true;
   };
-  
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -139,12 +149,16 @@
 
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
   ];
-  
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.yoyomanzoor = {
     isNormalUser = true;
     description = "Yoyomanzoor";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+    ];
     # openssh.authorizedKeys.keyFiles = [
     #   ~/.ssh
     # ];
@@ -183,7 +197,7 @@
       enable = true;
     };
   };
-  
+
   # Stylix settings
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
@@ -192,7 +206,7 @@
   stylix.cursor.name = "Bibata-Modern-Ice";
   stylix.fonts = {
     monospace = {
-      package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+      package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
       name = "JetBrainsMono Nerd Font Mono";
     };
     sansSerif = {
@@ -216,7 +230,7 @@
   #----=[ Fonts ]=----#
   # fonts = {
   #   enableDefaultPackages = true;
-  #   packages = with pkgs; [ 
+  #   packages = with pkgs; [
   #     (nerdfonts.override {fonts = [ "FiraCode" ]; })
   #     noto-fonts
   #     noto-fonts-emoji

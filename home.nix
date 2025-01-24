@@ -1,11 +1,16 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
 
   home.username = "yoyomanzoor";
   home.homeDirectory = "/home/yoyomanzoor";
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
     # hello # package that prints hello
@@ -59,6 +64,7 @@
       fuzzel.enable = true;
       fzf.enable = true;
       # gnome.enable = true;
+      # ghostty.enable = true;
       gtk.enable = true;
       kde.enable = true;
       kitty.enable = true;
@@ -81,7 +87,8 @@
 
     image = ./wallpaper.png;
     # https://tinted-theming.github.io/base16-gallery/
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.theme.theme}.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.theme.theme}.yaml";
+    base16Scheme = "${inputs.tt-schemes}/base16/${config.theme.theme}.yaml";
     polarity = "dark"; # light or dark or either
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
@@ -143,6 +150,7 @@
     # ./dotfiles/ankitheme.nix
     ./dotfiles/fish.nix
     ./dotfiles/fzf.nix
+    # ./dotfiles/ghostty.nix
     ./dotfiles/helix.nix
     # ./dotfiles/hyprland/hyprland.nix
     ./dotfiles/kitty.nix

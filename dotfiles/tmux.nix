@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+
+  ];
+
   programs.tmux = {
     enable = true;
     clock24 = true;
@@ -13,7 +17,10 @@
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.weather;
-        extraConfig = "run-shell ${pkgs.tmuxPlugins.weather}/share/tmux-plugins/weather/tmux-weather.tmux";
+        extraConfig = ''
+          set-option -g status-right "#{weather}"
+        '';
+        # extraConfig = "run-shell ${pkgs.tmuxPlugins.weather}/share/tmux-plugins/weather/tmux-weather.tmux";
       }
       {
         plugin = tmuxPlugins.jump;
@@ -45,10 +52,6 @@
       bind -n C-M-l select-pane -R
       bind -n C-M-k select-pane -U
       bind -n C-M-j select-pane -D
-      # bind -n M-Left select-pane -L
-      # bind -n M-Right select-pane -R
-      # bind -n M-Up select-pane -U
-      # bind -n M-Down select-pane -D
 
       bind C-M-J swap-pane -U
       bind C-M-K swap-pane -D
@@ -87,4 +90,3 @@
     # extraTmuxConf = "run-shell ${pkgs.tmuxPlugins.sidebar}/share/tmux-plugins/sidebar/sidebar.tmux";
   };
 }
-

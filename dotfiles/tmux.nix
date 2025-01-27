@@ -146,6 +146,8 @@ in
       # Jump to last window
       bind-key C-Space last-window
       bind-key Space run-shell -b "${pkgs.tmuxPlugins.tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/window.sh switch"
+      unbind "/"
+      bind-key "/" run-shell -b "${pkgs.tmuxPlugins.tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/keybinding.sh"
 
       # Split
       unbind '"'

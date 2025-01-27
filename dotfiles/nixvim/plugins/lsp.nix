@@ -185,10 +185,10 @@
           #  Similar to document symbols, except searches over your entire project.
           {
             mode = "n";
-            key = "<leader>ws";
+            key = "<leader>cs";
             action.__raw = "require('telescope.builtin').lsp_dynamic_workspace_symbols";
             options = {
-              desc = "LSP: [W]orkspace [S]ymbols";
+              desc = "LSP: workspace [S]ymbols";
             };
           }
         ];

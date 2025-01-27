@@ -164,6 +164,7 @@
     # ./dotfiles/wezterm.nix # konsole is better for arabic in vim
     ./dotfiles/wlogout/wlogout.nix
     ./dotfiles/wofi.nix
+    ./dotfiles/w3m/w3m.nix
     ./dotfiles/vieb/vieb.nix
     ./dotfiles/vim.nix
     ./dotfiles/vimiv/vimiv.nix

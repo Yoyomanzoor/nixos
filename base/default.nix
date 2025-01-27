@@ -106,6 +106,10 @@
     ripgrep
     jq
     unzip
+    bzip2
+    bzip3
+    libdeflate
+    brotli
     ugrep
     eza
     fzf

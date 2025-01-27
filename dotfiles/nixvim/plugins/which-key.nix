@@ -62,7 +62,7 @@
           }
           {
             __unkeyed-1 = "<leader>w";
-            group = "[W]orkspace";
+            group = "[W]eb";
           }
           {
             __unkeyed-1 = "<leader>y";

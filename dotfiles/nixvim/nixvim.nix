@@ -333,9 +333,18 @@
     };
 
     # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraplugins
-    extraPlugins = with pkgs.vimPlugins; [
+    extraPlugins = with pkgs; [
       # Useful for getting pretty icons, but requires a Nerd Font.
-      nvim-web-devicons # TODO: Figure out how to configure using this with telescope
+      vimPlugins.nvim-web-devicons # TODO: Figure out how to configure using this with telescope
+      (vimUtils.buildVimPlugin {
+        name = "w3m";
+        src = fetchFromGitHub {
+          owner = "yuratomo";
+          repo = "w3m.vim";
+          rev = "228a852b188f1a62ecea55fa48b0ec892fa6bad7";
+          hash = "sha256-zv5WdkS5PouGQbsklZev8X3oIg3EWUhb10GBqm/0BjA=";
+        };
+      })
     ];
 
     # TODO: Figure out where to move this

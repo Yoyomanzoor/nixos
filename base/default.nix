@@ -97,6 +97,7 @@
     blueman
     kitty
     ranger
+    yazi
     ueberzugpp
 
     # command line tools

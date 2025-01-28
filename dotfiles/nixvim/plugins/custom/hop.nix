@@ -2,10 +2,9 @@
   programs.nixvim = {
     plugins.hop = {
       enable = true;
-      settings = {
-        keys = "fjghdkslarutyeiwocmvncbqp";
-        multi_windows = true;
-      };
+      # settings = {
+      #   keys = "fjghdkslarutyeiwocmvncbqp";
+      # };
     };
     keymaps = [
       {

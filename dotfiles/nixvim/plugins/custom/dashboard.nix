@@ -8,6 +8,7 @@
           ""
           ""
           ""
+          ""
           "/\\   __                                "
           "\\ \\_/ /__  _   _  ___/\\  /🪀 _ __ ___  "
           " \\   / _ \\| | | |/ _ \\ \\/ / | '_ ` _ \\ "
@@ -15,32 +16,33 @@
           "  |_|\\___/ \\__, |\\___/ \\/ |_|_| |_| |_|"
           "__________  __/ |  ____________________"
           "           |___/                       "
+          ""
         ];
         center = [
-          {
-            action = {
-              __raw = "function() vim.cmd('SessionSearch') end";
-            };
-            desc = "sessions";
-            icon = "󰍹 ";
-            key = "a";
-          }
+          # {
+          #   action = {
+          #     __raw = "function() vim.cmd('SessionSearch') end";
+          #   };
+          #   desc = "sessions";
+          #   icon = "󰍹 ";
+          #   key = "a";
+          # }
           {
             action = {
               __raw = "function(path) vim.cmd('Telescope oldfiles') end";
             };
             desc = "recent files";
             icon = "󰌑 ";
-            key = "s";
+            key = "a";
           }
           {
             action = {
-              __raw = "function(path) vim.cmd('Telescope file_browser hidden=true') end";
+              __raw = "function(path) vim.cmd('Telescope find_files') end";
             };
             desc = "directory";
             icon = " ";
             icon_hl = "@variable";
-            key = "d";
+            key = "s";
           }
           {
             action = {
@@ -49,7 +51,7 @@
             desc = "files";
             icon = "󰈔 ";
             icon_hl = "@variable";
-            key = "f";
+            key = "d";
           }
           {
             action = {
@@ -58,7 +60,7 @@
             desc = "ranger";
             icon = "󱡁 ";
             icon_hl = "@variable";
-            key = "r";
+            key = "f";
           }
         ];
         footer = [ "Yoyo 󱄅 Manzoor" ];

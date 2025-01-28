@@ -157,6 +157,7 @@
     ./dotfiles/nixvim/nixvim.nix
     # ./dotfiles/nixvim/neve.nix # alternative neovim config
     ./dotfiles/ranger/ranger.nix
+    ./dotfiles/sesh/sesh.nix
     ./dotfiles/sway/sway.nix
     ./dotfiles/swaync/swaync.nix
     ./dotfiles/tmux.nix

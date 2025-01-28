@@ -23,7 +23,7 @@
   programs.fish = {
     enable = true;
     functions = {
-      fish_greeting.body = "fastfetch";
+      fish_greeting.body = "echo 'Yoyo 󱄅 Manzoor'";
       nix-switch.body = ''
         sudo nixos-rebuild switch --flake ~/.config/nixos#lenovo-nanoX1-wayland && nvd diff (find /nix/var/nix/profiles/ -name "system-*-link" | sort -rn -t "-" -k 2 | head -2 | tac)
       '';

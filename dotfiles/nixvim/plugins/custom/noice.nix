@@ -5,6 +5,9 @@
       # lazyLoad.enable = true;
       settings = {
         presets.bottom_search = true;
+        cmdline = {
+          view = "cmdline";
+        };
       };
     };
     keymaps = [

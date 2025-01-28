@@ -1,0 +1,36 @@
+[default_session]
+preview_command = "eza --all --git --icons --color=always {}"
+
+[[session]]
+name = "terminal ⚙️"
+path = "~"
+startup_command = "fastfetch"
+preview_command = "fastfetch"
+
+[[session]]
+name = "nvim"
+path = "~"
+startup_command = "fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+preview_command = "eza --all --icons --color=always {}"
+
+[[session]]
+name = "nixos 󱄅"
+path = "~/.config/nixos"
+startup_command = "fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+preview_command = "eza --all --icons --color=always {}"
+
+[[session]]
+name = "downloads 📥"
+path = "~/Downloads"
+startup_command = "ls; yazi"
+
+[[session]]
+name = "audio 🎵"
+path = "~/Audio"
+startup_command = "ls"
+
+[[session]]
+name = "tmux config ⚙️"
+path = "~/.config/tmux"
+startup_command = "nvim tmux.conf"
+preview_command = "bat --color=always ~/.config/tmux/tmux.conf"

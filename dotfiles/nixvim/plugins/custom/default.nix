@@ -1,6 +1,6 @@
 {
   imports = [
-    ./auto-session.nix
+    # ./auto-session.nix
     ./dashboard.nix
     ./floaterm.nix
     ./hop.nix
@@ -10,6 +10,7 @@
     ./notify.nix
     ./ranger.nix
     ./surround.nix
+    ./tmux-navigator.nix
     ./todo-comments.nix
     ./undotree.nix
   ];

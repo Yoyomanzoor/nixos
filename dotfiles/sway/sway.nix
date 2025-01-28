@@ -30,7 +30,7 @@ in
       }
       {
         timeout = 1800;
-        command = "${gtklock-screen}";
+        command = "${gtklock-screen}/bin/gtklock-screen";
       }
       {
         timeout = 3600;
@@ -40,7 +40,7 @@ in
     ];
     extraArgs = [
       "before-sleep 'playerctl pause'"
-      "before-sleep '${gtklock-screen}'"
+      "before-sleep '${gtklock-screen}/bin/gtklock-screen'"
     ];
   };
 
@@ -129,8 +129,8 @@ in
         "${mod}+Down" = "focus down";
         "${mod}+Up" = "focus up";
         "${mod}+Right" = "focus right";
-        "${mod}+a" = "focus parent";
-        "${mod}+z" = "focus child";
+        "${mod}+Shift+a" = "focus parent";
+        "${mod}+Shift+z" = "focus child";
         "${mod}+Shift+t" = "focus mode_toggle";
         # Navigation
         "${mod}+Ctrl+l" = "exec swayworkspace navigate next";
@@ -195,7 +195,7 @@ in
         "${mod}+s" = "scratchpad show";
         "${mod}+Shift+s" = "move to scratchpad";
         # Layout toggle
-        "${mod}+t" = "toggle tabbed splith splitv";
+        # "${mod}+t" = "toggle tabbed splith splitv";
         # Resize mode
         "${mod}+r" = "mode 'resize'";
         # Gaps
@@ -226,6 +226,9 @@ in
         "${mod}+Shift+Return" = "exec --no-startup-id vieb";
         "${mod}+Ctrl+s" = "exec grim -g '$(slurp -d)' - | wl-copy -t image/png";
         "${mod}+p" = "exec --no-startup-id nwg-displays";
+        "${mod}+t" = "exec sesh list | wofi --show dmenu | xargs kitty -e sesh connect";
+        "${mod}+z" =
+          "exec fd --type f -e pdf --hidden --exclude .git . ~ | wofi --show dmenu | xargs zathura";
         # Emojis
         "${mod}+period" = "exec wofi-emoji";
       };

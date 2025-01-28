@@ -167,6 +167,7 @@
       vlc
       vimpager
       htop-vim
+      sesh
 
       # Ranger tools
       atool

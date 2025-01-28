@@ -237,7 +237,7 @@
       {
         mode = "n";
         key = "<leader>x";
-        action = "bd";
+        action = "<cmd>bd<CR>";
         options = {
           desc = "Close buffer";
         };
